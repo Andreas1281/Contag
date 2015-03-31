@@ -1,0 +1,30 @@
+<div class="row">
+             
+              <div id="test1" class="col s12">
+
+                  <div class="input-field col s12 m12">
+
+                    <input  class="validate" type="text" id="check_id"></input>
+                  
+                     <div class="right-align">
+                     <button  class="btn-large waves-effect waves-light" 
+                     type="submit" name="submit"  onclick="request($('#check_id').val());">Check</button>
+                     </div>
+
+        			      <label for="check_id">Input Shoptag Code to see Results</label>
+                  </div> 
+
+                  <table class="striped">
+                      <thead>
+                        <tr>
+                            <th id="result_info" data-field="id"><p>Für diesen Shoptag sind folgende Daten hinterlegt:</p></th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                      <tr id="results"></tr>
+                      </tbody>
+                  </table>
+              </div>
+
+</div>
