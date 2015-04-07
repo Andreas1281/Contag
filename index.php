@@ -23,16 +23,32 @@
   <nav id="user_logged_in" class="cyan darken-2" role="navigation">
     <div class="container">
       <div class="nav-wrapper"><a id="logo-container" href="#" class="brand-logo"></a>
+
         <ul class="right">
-
-	  <li style="margin-right:1em;" >Hello, <?php echo $_SESSION["id"];?> !</li>        
-          <li><img class="circle" id="userpic" src="images/user.png"></li>        
-          <li><i class="  mdi-action-settings"></i></li>
-
-        </ul>
+          <li style="margin-right:1em;" >Hello, <?php echo $_SESSION["id"];?> !</li>        
+      </ul>
       </div>
     </div>
   </nav>
+
+
+  <!-- User Dropdown -->
+       
+          <div id="dd" class="wrapper-dropdown-5" tabindex="1">
+
+          <img class="circle"   id="userpic" src="images/user.png"><h6>Wessolly Mobile Marketing</h6>
+            <ul class="dropdown">
+              <li><a href="#"><i class="icon-user"></i>Profile</a></li>
+              <li><a href="#"><i class="icon-cog"></i>Settings</a></li>
+              <li><a href="#"><i class="icon-remove"></i>Log out</a></li>
+            </ul>
+          </div>
+
+
+  <!-- User Dropdown -->   
+
+
+
 
   <!-- Main bar -->
   <nav id="main_nav" class="cyan lighten-1" role="navigation">
