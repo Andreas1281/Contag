@@ -4927,8 +4927,8 @@ padding: 0 1.5rem;
       width: 41.66667%;
       margin-left: 0; }
     .row .col.s6 {
-      width: 50%;
-      margin-left: 0; }
+     width: 48%;
+  margin-right: 20px; }
     .row .col.s7 {
       width: 58.33333%;
       margin-left: 0; }
@@ -5365,6 +5365,20 @@ h5 {
   font-size: 1.64rem;
   line-height: 1.804rem;
   margin: 2rem 0rem 2rem 1.3rem;}
+
+
+#h5_address_data{
+  font-size: 1.64rem;
+  line-height: 1.804rem;
+  margin: 2rem 0rem 2rem 0.6rem;}
+
+  #test2{
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 99%;
+  }
+
+
 
 #bold_p{
   font-weight: 500;

@@ -120,7 +120,7 @@
 
 	<!-- Copyright -->
 	&nbsp; | &nbsp; 
-	Contag &copy; 2014 by <a class="white-text text-lighten-3 right-align" href="http://www.wessolly-mobile.de">WMM</a>   
+	Contag &copy; 2015 by <a class="white-text text-lighten-3 right-align" href="http://www.wessolly-mobile.de">WMM</a>   
 	&nbsp; | &nbsp; 
 	<a href="imprint.html">Imprint</a>
 
