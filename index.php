@@ -30,7 +30,7 @@
           <li><a onclick="load('home');">Contags</a></li>
           <li><a onclick="load('select');">Setup</a></li>
           <li><a onclick="load('retrieve');">Check Code</a></li>
-          <li>Hello, <?php echo $_SESSION["id"];?> !</li> 
+          <li><a>Hello, <?php echo $_SESSION["id"];?> !</a></li> 
         </ul>
         <ul id="nav-mobile" class="side-nav">
           <li><a href="#">Navbar Link</a></li>
@@ -42,7 +42,7 @@
 
  
     <div class="container">
-      <div class="nav-wrapper right">
+      <div class="nav-wrapper right_user">
         <!-- User Dropdown -->       
           <div id="dd" class="wrapper-dropdown-5" tabindex="1">
 
