@@ -19,35 +19,7 @@
   <?php session_start();
 	if (isset($_SESSION["id"])) {?>
 
-  <!-- User bar -->  
-  <nav id="user_logged_in" class="cyan darken-2" role="navigation">
-    <div class="container">
-      <div class="nav-wrapper"><a id="logo-container" href="#" class="brand-logo"></a>
-
-        <ul class="right">
-          <li style="margin-right:1em;" >Hello, <?php echo $_SESSION["id"];?> !</li>        
-      </ul>
-      </div>
-    </div>
-  </nav>
-
-
-  <!-- User Dropdown -->
-       
-          <div id="dd" class="wrapper-dropdown-5" tabindex="1">
-
-          <img class="circle"   id="userpic" src="images/user.png"><h6>Wessolly Mobile Marketing</h6>
-            <ul class="dropdown">
-              <li><a href="#"><i class="icon-user"></i>Profile</a></li>
-              <li><a href="#"><i class="icon-cog"></i>Settings</a></li>
-              <li><a href="#"><i class="icon-remove"></i>Log out</a></li>
-            </ul>
-          </div>
-
-
-  <!-- User Dropdown -->   
-
-
+ 
 
 
   <!-- Main bar -->
@@ -58,6 +30,7 @@
           <li><a onclick="load('home');">Contags</a></li>
           <li><a onclick="load('select');">Setup</a></li>
           <li><a onclick="load('retrieve');">Check Code</a></li>
+          <li>Hello, <?php echo $_SESSION["id"];?> !</li> 
         </ul>
         <ul id="nav-mobile" class="side-nav">
           <li><a href="#">Navbar Link</a></li>
@@ -66,6 +39,25 @@
       </div>
     </div>
   </nav>
+
+ 
+    <div class="container">
+      <div class="nav-wrapper right">
+        <!-- User Dropdown -->       
+          <div id="dd" class="wrapper-dropdown-5" tabindex="1">
+
+          <img class="circle"   id="userpic" src="images/user.png"><h6 id="username">Wessolly Mobile Marketing</h6>
+            <ul class="dropdown">
+              <li><a href="#"><i class="icon-user"></i>Profile</a></li>
+              <li><a href="#"><i class="icon-cog"></i>Settings</a></li>
+              <li><a href="#"><i class="icon-remove"></i>Log out</a></li>
+            </ul>
+          </div>
+  <!-- User Dropdown -->  
+        
+      </div>
+    </div>
+
 
   <!-- LOGGED OUT ################################################-->
   <?php } else {?>
