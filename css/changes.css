@@ -13,17 +13,17 @@
   background-color: #2790B0 !important; }
 
 
-.cyan.darken-2 {
-  background-color: #444444 !important; }
+.cyan.darken-2 {,
+  background-color: #84E0FC !important }
  
 
  
 .cyan.darken-3 {
-  background-color: #afb42b !important; }
+  background-color: #38CFFC !important; }
  
  
 .cyan.darken-4 {
-  background-color: #689f38 !important; }
+  background-color: #195C70 !important; }
 
 
   .green {
@@ -104,6 +104,7 @@ td.select, th {
  
   text-align: left !important;
   padding-left: 1rem;
+  font-size: 1.2rem;
  }
  
 
@@ -204,7 +205,7 @@ padding: 0 1.5rem;
 
   .row .col.s6 {
      width: 48%;
-  margin-right: 20px; }
+  margin-right: 10px; }
 
 
   nav {
@@ -318,11 +319,12 @@ h6 {
 
 
  .card-panel {
-  padding: 20px;
+  padding: 3rem;
   margin: 2rem 0 1rem 0;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
+  min-height: 660px;
   background-clip: padding-box;
   background-color: #fff; }
 
@@ -406,8 +408,8 @@ h6 {
   background-color: #fff;
 
   max-height: 85%;
-  width: 40%;
-  top: 20% !important;
+  width: 43%;
+  top: 16% !important;
    }
 
 
@@ -1009,7 +1011,7 @@ text-align: left;
     width: 240px;
     margin: 0 auto;
     padding: 12px 15px;
-      background: rgba(250,250,250,0.3);
+      background: #C6D2DC;
  
     /* Styles */
  
@@ -1112,6 +1114,20 @@ text-align: left;
  
 /* No CSS3 support: none */
 
+table.striped tbody tr:nth-child(odd) {
+  background-color: #eef2f3;
+}
+
+body.home{
+	background-image: none;
+	background-color: #eef2f3;
+}
+
+
+.input-field label {
+  color: #53585C;
+
+}
 
 
 

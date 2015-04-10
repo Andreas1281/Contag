@@ -1,0 +1,17 @@
+# Change Log
+Hier stehen alle wichtigen Code Änderungen des Projektes "Contag / Shoptag" drin.
+
+
+
+######### Beispiele für verschiedenen Statusmeldungen #################
+
+## [0.0.8] - 2015-02-17
+### Changed
+- Was wurde geändert? Bitte reinschreiben
+
+### Fixed
+- Was wurde geändert? Bitte reinschreiben
+
+## [0.0.7] - 2015-02-16
+### Added
+- Was wurde geändert? Bitte reinschreiben
