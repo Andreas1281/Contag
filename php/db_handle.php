@@ -19,7 +19,7 @@ function db_init(){
 
 // Function: 	Create new DB address entry
 // Call : 	db_add("de_de", $array)
-function db_add($locale, $values) {
+function db_add($locale, $values){
 
 	$keys = implode(",",array_keys($values));
 	$vals = implode(",",array_values($values));
@@ -37,7 +37,7 @@ function db_add($locale, $values) {
 //		(DB needs better id system!)
 // Call: 	db_get("de_de",user_id,id)
 // Return:	Array
-function db_get($locale, $user_id, $id) {
+function db_get($locale, $user_id, $id){
 
 	$handle = "SELECT * FROM '$locale' 
 		   where user_id='$user_id' AND id='$id'";
@@ -51,7 +51,7 @@ function db_get($locale, $user_id, $id) {
 
 //Function:	Example calls
 //Called:	on init
-function main() {
+function main(){
 
 	//db_init(): // Create new db if missing
 	echo db_get("de_de",1,1)["last_name"]; // String (Single Field)
@@ -71,7 +71,7 @@ function main() {
 		description_2 => "\"Erste Etage\"",
 		street_name => "\"Am Rosengarten\"",
 		street_number => "\"20\"",
-		postal_codel => "\"36037\"",
+		postal_code => "\"36037\"",
 		city => "\"Fulda\"",
 		region => "\"Hessen\"",
 		email_address => "\"email@address.com\"",
