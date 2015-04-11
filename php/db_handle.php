@@ -49,6 +49,16 @@ function db_get($locale, $user_id, $id){
 	return $db_output[0]; // Array
 }
 
+function db_set($locale, $user_id, $id, $values) {
+
+	$db = $GLOBALS["db"];
+	foreach($values as $key => $val){
+		$handle = "UPDATE '$locale' SET $key='$val' WHERE id='$userID'";
+		$db_request = $db->prepare($handle);
+		$db_request->execute();
+	}
+}
+
 //Function:	Example calls
 //Called:	on init
 function main(){
