@@ -26,6 +26,16 @@ function db_get($locale, $user_id, $id) {
 	return $db_output[0];
 }
 
+function db_set($locale, $user_id, $id, $set_query) {
+
+	$db = $GLOBALS["db"];
+	$handle = "UPDATE '$locale' SET name='$value' WHERE id='$userID'";
+	$db_request = $db->prepare($handle);
+	$db_request->execute();
+
+}
+
+
 $data = db_get("de_de",1,1);
 echo $data["last_name"];
 
