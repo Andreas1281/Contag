@@ -32,7 +32,7 @@ function db_exec($handle){
 
 // Function: 	Convert array to JSON
 // Call: 	db_json(array)
-// Return: JSON object
+// Return: JSON STRING
 function db_json($array){ 
 	
 	return json_encode($array,JSON_PRETTY_PRINT);
@@ -51,8 +51,8 @@ function db_entry_exists($table,$key,$val){
 }
 
 // Function: 	Check permission for session
-// Call: 	db_check_permission()
-// Return	STRING
+// Call: 	db_check_permission(session,hash)
+// Return	CHAR permission(N/R/W)
 function db_check_permission($session,$hash){
 
 	$meta = json_decode(db_get_index($hash));
@@ -61,7 +61,7 @@ function db_check_permission($session,$hash){
 	if($owner){ return "W"; }
 	switch($meta->access) {
 	
-		case 1: return 0;
+		case 1: return "N";
 		case 2: return "R";
 	}
 
@@ -69,11 +69,11 @@ function db_check_permission($session,$hash){
 
 // Function: 	Generate unique hash
 // Call: 	db_hash_gen()
-// Return	STRING
+// Return	STRING hash
 function db_hash_gen(){
 
 	while(true){
-
+	
 		$hash = "";
 		for ($i = 0; $i < 8; $i++) {
 			$hash .= chr(rand(ord('a'), ord('z'))); 
@@ -87,7 +87,7 @@ function db_hash_gen(){
 // Function: 	Create new DB address entry
 // Needed:	type & access values, others are optional
 // Call: 	db_add_address(session,"de_de",array)
-// Return:	hash
+// Return:	STRING hash
 function db_add_address($session, $locale, $values){
 
 	$user_id = $session["id"];
@@ -105,7 +105,7 @@ function db_add_address($session, $locale, $values){
 // Function: 	Get all data for a certain address entry
 //		(DB needs better id system!)
 // Call: 	db_get_address(hash)
-// Return:	Array
+// Return:	ARRAY
 function db_get_address($hash){
 
 	$db_request = db_exec("SELECT * FROM 'Index' WHERE hash='$hash'");
@@ -120,7 +120,7 @@ function db_get_address($hash){
 
 // Function: 	Get all entries for a certain user ID
 // Call: 	db_get_all_by_user(user_id)
-// Return:	2D-Array
+// Return:	2D-ARRAY
 function db_get_all_by_user($user_id){
 
 	$db_request = db_exec("SELECT hash,locale,table_id FROM 'Index' where user_id='$user_id'");
@@ -181,10 +181,10 @@ function main(){
 	echo db_get_address("siatdaye");
 	
 	// Check user permission for entry
-	echo "<h2>Access level for hash: siatdaye</h2>";
+	echo "<h2>Access level user ".$SESSION["id"]." for hash: siatdaye</h2>";
 	switch(db_check_permission($SESSION,"siatdaye")){
 	
-		case "0": echo "<p style='color:red'>No access allowed</p>"; break;
+		case "N": echo "<p style='color:red'>No access allowed</p>"; break;
 		case "R": echo "<p style='color:yellow'>Read only access</p>"; break;
 		case "W": echo "<p style='color:green'>Full write access</p>"; break;
 		
