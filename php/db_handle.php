@@ -65,7 +65,7 @@ function db_set($locale, $user_id, $id, $values){
 
 	$db = $GLOBALS["db"];
 	foreach($values as $key => $val){
-		$handle = "UPDATE '$locale' SET $key='$val' WHERE id='$userID'";
+		$handle = "UPDATE '$locale' SET $key='$val' WHERE user_id='$user_id' AND id='$id'";
 		$db_request = $db->prepare($handle);
 		$db_request->execute();
 	}
