@@ -70,7 +70,7 @@ function db_add_address($locale, $values){
 function db_get_address($locale, $user_id, $id){
 
 	$db_request = db_exec("SELECT * FROM '$locale' where user_id='$user_id' AND id='$id'");
-	return $db_request->fetchAll()[0];
+	return $db_request->fetchAll(PDO::FETCH_ASSOC)[0];
 }
 
 // Function: 	Get all entries for a certain user ID
@@ -79,7 +79,7 @@ function db_get_address($locale, $user_id, $id){
 function db_get_all_address($user_id){
 
 	$db_request = db_exec("SELECT * FROM 'de_de' where user_id='$user_id'");
-	return $db_request->fetchAll(); 
+	return $db_request->fetchAll(PDO::FETCH_ASSOC); 
 }
 
 // Function: 	Modify values of an address entry
@@ -106,6 +106,7 @@ function main(){
 	db_add_address("de_de", [
 		user_id => "5",
 		type => "1",
+		visibility => "3",
 		organisation => "Wessolly Mobile Marketing",
 		first_name => "Andreas",
 		last_name => "Wessolly",
@@ -116,8 +117,11 @@ function main(){
 		street_name => "Am Rosengarten",
 		street_number => "20",
 		postal_code => "36037",
+		city => "Fulda",
 		region => "Hessen",
+		country => "Deutschland",
 		email_address => "email@address.com",
+		web_address => "www.wessolly-mobile.de",
 		phone_number => "1234567",
 		mobile_number => "1234567",
 		fax_number => "1234568"
