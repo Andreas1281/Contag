@@ -50,6 +50,23 @@ function db_entry_exists($table,$key,$val){
    	else{ return false; }
 }
 
+// Function: 	Check permission for session
+// Call: 	db_check_permission()
+// Return	STRING
+function db_check_permission($session,$hash){
+
+	$meta = json_decode(db_get_index($hash));
+	$owner = ($session["id"] == $meta->user_id) ? TRUE : FALSE;
+	
+	if($owner){ return "W"; }
+	switch($meta->access) {
+	
+		case 1: return 0;
+		case 2: return "R";
+	}
+
+}
+
 // Function: 	Generate unique hash
 // Call: 	db_hash_gen()
 // Return	STRING
@@ -68,15 +85,18 @@ function db_hash_gen(){
 }
 
 // Function: 	Create new DB address entry
-// Call : 	db_add_address("de_de",array)
-function db_add_address($locale, $values){
+// Call : 	db_add_address(session,"de_de",array)
+function db_add_address($session, $locale, $values){
 
+	$user_id = $session["id"];
+	$type = $values["type"]; unset($values["type"]);
+	$access = $values["access"]; unset($values["access"]);
 	$keys = '"'.implode('", "',array_keys($values)).'"';
 	$vals = '"'.implode('", "',array_values($values)).'"';
-	$user_id = $values["user_id"];
+	
 	$hash = db_hash_gen();
 	db_exec("INSERT INTO '$locale' ($keys) VALUES ($vals)");
-	db_exec("INSERT INTO 'Index' (locale,table_id,user_id,hash) VALUES ('$locale',last_insert_rowid(),'$user_id','$hash')");
+	db_exec("INSERT INTO 'Index' (locale,table_id,user_id,hash,type,access) VALUES ('$locale',last_insert_rowid(),'$user_id','$hash','$type','$access')");
 	return 1;
 }
 
@@ -111,11 +131,19 @@ function db_get_all_by_user($user_id){
 }
 
 // Function:	Get index of all addresses
-// Call: 	db_get_index()
-function db_get_index(){
+// Call: 	db_get_all_index()
+function db_get_all_index(){
 
 	$db_request = db_exec("SELECT * FROM 'Index'");
-	return json_encode($db_request->fetchAll(PDO::FETCH_ASSOC), JSON_PRETTY_PRINT); 
+	return db_json($db_request->fetchAll(PDO::FETCH_ASSOC)); 
+}
+
+// Function:	Get index of certain hash
+// Call: 	db_get_index(hash)
+function db_get_index($hash){
+
+	$db_request = db_exec("SELECT * FROM 'Index' WHERE hash='$hash'");
+	return db_json($db_request->fetchAll(PDO::FETCH_ASSOC)[0]); 
 }
 
 // Function: 	Modify values of an address entry
@@ -132,19 +160,34 @@ function db_set_address($locale, $user_id, $id, $values){
 // Called:	on init
 function main(){
 
+	session_start();
+	$SESSION["id"] = 4; // For debugging
 	db_init(); // Create new db if missing
 	
-	echo "<h2>Single entry by hash: fifbjiqy</h2>";
-	echo db_get_address("fifbjiqy");
-	echo "<h2>Index of all entries</h2>";
-	echo db_get_index();
-	echo "<h2>Address entries by user ID</h2>";
-	echo db_get_all_by_user(5); // 2D-Array (All entries from user)
+	echo "<h2>Single entry by hash: siatdaye</h2>";
+	echo db_get_address("siatdaye");
+	
+	echo "<h2>Single index by hash: siatdaye</h2>";
+	echo db_get_index("siatdaye");
 
-	db_add_address("de_de", [
-		user_id => "5",
-		type => "1",
-		visibility => "3",
+	// Check user permission for entry
+	echo "<h2>Access level for hash: siatdaye</h2>";
+	switch(db_check_permission($SESSION,"siatdaye")){
+	
+		case "0": echo "No access allowed"; break;
+		case "R": echo "Read only access"; break;
+		case "W": echo "Full write access"; break;
+		
+	}
+
+	echo "<h2>Index of all entries</h2>";
+	echo db_get_all_index();
+	
+	echo "<h2>All entries by current user</h2>";
+	echo db_get_all_by_user($SESSION["id"]);
+
+	db_add_address($SESSION, "de_de", [
+		type => 1, access => 2,
 		organisation => "Wessolly Mobile Marketing",
 		first_name => "Andreas",
 		last_name => "Wessolly",
