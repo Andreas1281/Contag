@@ -22,8 +22,8 @@ function db_init(){
 // Call : 	db_add("de_de", $array)
 function db_add($locale, $values){
 
-	$keys = implode(",",array_keys($values));
-	$vals = implode(",",array_values($values));
+	$keys = '"'.implode('", "',array_keys($values)).'"';
+	$vals = '"'.implode('", "',array_values($values)).'"';
 	$handle = "INSERT INTO '$locale' ($keys) VALUES ($vals)";
 
 	$db = $GLOBALS["db"];
@@ -65,7 +65,7 @@ function db_set($locale, $user_id, $id, $values){
 
 	$db = $GLOBALS["db"];
 	foreach($values as $key => $val){
-		$handle = "UPDATE '$locale' SET $key='$val' WHERE user_id='$user_id' AND id='$id'";
+		$handle = "UPDATE '$locale' SET $key='$val' WHERE id='$userID'";
 		$db_request = $db->prepare($handle);
 		$db_request->execute();
 	}
@@ -83,23 +83,23 @@ function main(){
 
 	// Forgot to add city field...
 	db_add("de_de", [
-		user_id => "\"5\"",
-		type => "\"1\"",
-		organisation => "\"Wessolly Mobile Marketing\"",
-		first_name => "\"Andreas\"",
-		last_name => "\"Wessolly\"",
-		title_1 => "\"Prof. Dr.\"",
-		title_2 => "\"Allgemeinmediziner\"",
-		description_1 => "\"c/o Office-Factory\"",
-		description_2 => "\"Erste Etage\"",
-		street_name => "\"Am Rosengarten\"",
-		street_number => "\"20\"",
-		postal_code => "\"36037\"",
-		region => "\"Hessen\"",
-		email_address => "\"email@address.com\"",
-		phone_number => "\"1234567\"",
-		mobile_number => "\"1234567\"",
-		fax_number => "\"1234568\""
+		user_id => "5",
+		type => "1",
+		organisation => "Wessolly Mobile Marketing",
+		first_name => "Andreas",
+		last_name => "Wessolly",
+		title_1 => "Prof. Dr.",
+		title_2 => "Allgemeinmediziner",
+		description_1 => "c/o Office-Factory",
+		description_2 => "Erste Etage",
+		street_name => "Am Rosengarten",
+		street_number => "20",
+		postal_code => "36037",
+		region => "Hessen",
+		email_address => "email@address.com",
+		phone_number => "1234567",
+		mobile_number => "1234567",
+		fax_number => "1234568"
 	]);
 	return 1;
 }
