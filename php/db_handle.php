@@ -30,6 +30,30 @@ function db_exec($handle){
 	return $db_request;
 }
 
+function db_entry_exists($table,$key,$val){
+
+   	$IDq = db_exec("SELECT * FROM '$table' WHERE $key='$val'");
+   	$IDf = $IDq->fetch();
+   	
+  	if($IDf[$key]){ return true; } 
+   	else{ return false; }
+}
+
+function db_hash_gen(){
+
+	while(true){
+
+		$hash = "";
+		for ($i = 0; $i < 8; $i++) {
+			$hash .= chr(rand(ord('a'), ord('z'))); 
+		}
+		if (!db_entry_exists("Hashes","hash","$hash")) {
+			echo "Doesn't exist yet";
+			return $hash;
+		}
+	}
+}
+
 // Function: 	Create new DB address entry
 // Call : 	db_add_address("de_de", $array)
 function db_add_address($locale, $values){
@@ -72,9 +96,10 @@ function db_set_address($locale, $user_id, $id, $values){
 // Called:	on init
 function main(){
 
-	// db_init(): // Create new db if missing
+	db_init(); // Create new db if missing
 	// echo db_get_address("de_de",1,1)["last_name"]; // String (Single Field)
 	// print_r( db_get_address("de_de",1,1) ); // Array (All entry data)
+	//db_hash_gen();
 	print_r(db_get_all_address(5)); // 2D-Array (All entries from user)
 
 	// Forgot to add city field...
