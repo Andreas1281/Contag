@@ -84,6 +84,18 @@ function db_hash_gen(){
 	}
 }
 
+// Function: 	Create new DB user entry
+// Needed:	type & access values, others are optional
+// Call: 	db_add_user()
+// Return:	INTEGER id
+function db_add_user($values){
+
+	$values["password"] = hash('sha256', $values['password']);
+	$keys = '"'.implode('", "',array_keys($values)).'"';
+	$vals = '"'.implode('", "',array_values($values)).'"';
+	db_exec("INSERT INTO Users ($keys) VALUES ($vals)");
+}
+
 // Function: 	Create new DB address entry
 // Needed:	type & access values, others are optional
 // Call: 	db_add_address(session,"de_de",array)
@@ -100,6 +112,12 @@ function db_add_address($session, $locale, $values){
 	db_exec("INSERT INTO '$locale' ($keys) VALUES ($vals)");
 	db_exec("INSERT INTO 'Index' (locale,table_id,user_id,hash,type,access) VALUES ('$locale',last_insert_rowid(),'$user_id','$hash','$type','$access')");
 	return $hash;
+}
+
+function db_get_user($id){
+
+	$db_request = db_exec("SELECT * FROM 'Users' WHERE id='$id'");
+	return db_json($db_request->fetchAll(PDO::FETCH_ASSOC)[0]);
 }
 
 // Function: 	Get all data for a certain address entry
@@ -171,24 +189,32 @@ function db_set_address($locale, $user_id, $id, $values){
 function main(){
 
 	session_start();
-	$SESSION["id"] = 4; // For debugging
+	$SESSION["id"] = 1; // For debugging
 	db_init(); // Create new db if missing
 	
-	echo "<h2>Single index by hash: siatdaye</h2>";
-	echo db_get_index("siatdaye");
+	echo "<h2>Single index by hash: ypytrmyr</h2>";
+	echo db_get_index("ypytrmyr");
 	
-	echo "<h2>Single entry by hash: siatdaye</h2>";
-	echo db_get_address("siatdaye");
+	echo "<h2>Single entry by hash: ypytrmyr</h2>";
+	echo db_get_address("ypytrmyr");
 	
 	// Check user permission for entry
 	echo "<h2>Access level user ".$SESSION["id"]." for hash: siatdaye</h2>";
-	switch(db_check_permission($SESSION,"siatdaye")){
+	switch(db_check_permission($SESSION,"ypytrmyr")){
 	
 		case "N": echo "<p style='color:red'>No access allowed</p>"; break;
-		case "R": echo "<p style='color:yellow'>Read only access</p>"; break;
-		case "W": echo "<p style='color:green'>Full write access</p>"; break;
+		case "R": echo "<p style='color:BADA55'>Read only access</p>"; break;
+		case "W": echo "<p style='color:green'>Full write access<///p>"; break;
 		
 	}
+	
+	echo "<h2>User</h2>";
+	print_r(db_get_user($SESSION["id"]));
+	db_add_user([
+		name => "testuser",
+		password => "testpw",
+		email => "test@email.de"
+	]);
 
 	$new_entry = db_add_address($SESSION, "de_de", [
 		type => 1, access => 2,
