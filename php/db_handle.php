@@ -20,6 +20,7 @@ function db_init(){
 
 // Function: 	Execute safe SQL command
 // Call: 	db_exec(SQL_string)
+// Return:	Object
 function db_exec($handle){
 
 	$db = $GLOBALS["db"];
@@ -57,9 +58,8 @@ function db_get_all_address($user_id){
 	return $db_request->fetchAll(); 
 }
 
-// Function: 	Modify all values of an address entry
+// Function: 	Modify values of an address entry
 // Call: 	db_set_address("de_de",user_id,id,array)
-// Return:	2D-Array
 function db_set_address($locale, $user_id, $id, $values){
 
 	foreach($values as $key => $val){
