@@ -18,20 +18,22 @@ function db_init(){
 	return 1;
 }
 
+function db_exec($handle){
+
+	$db = $GLOBALS["db"];
+   	$db_request = $db->prepare($handle);
+	try { $db_request->execute();
+    	} catch(PDOException $e) { die("DB error: ".$e); }
+	return $db_request;
+}
+
 // Function: 	Create new DB address entry
 // Call : 	db_add("de_de", $array)
 function db_add($locale, $values){
 
 	$keys = '"'.implode('", "',array_keys($values)).'"';
 	$vals = '"'.implode('", "',array_values($values)).'"';
-	$handle = "INSERT INTO '$locale' ($keys) VALUES ($vals)";
-
-	$db = $GLOBALS["db"];
-   	$db_request = $db->prepare($handle);
-	try { $db_request->execute();
-    	} catch(PDOException $e) { die("DB writing error: ".$e); }
-	echo "Executed Query: ".$handle;
-	return 1;
+	db_exec("INSERT INTO '$locale' ($keys) VALUES ($vals)");
 }
 
 // Function: 	Get all data for a certain address entry
@@ -40,45 +42,36 @@ function db_add($locale, $values){
 // Return:	Array
 function db_get($locale, $user_id, $id){
 
-	$handle = "SELECT * FROM '$locale' 
-		   where user_id='$user_id' AND id='$id'";
-	
-	$db = $GLOBALS["db"];
-	$db_request = $db->prepare($handle); 
-	$db_request->execute();
-	$db_output = $db_request->fetchAll(); 
-	return $db_output[0]; // Array
+	$db_request = db_exec("SELECT * FROM '$locale' 
+						   where user_id='$user_id' AND id='$id'");
+						   
+	return $db_request->fetchAll()[0]; // Array
 }
 
 function db_get_all($user_id){
 
-	$handle = "SELECT * FROM 'de_de' where user_id='$user_id'";
-	
-	$db = $GLOBALS["db"];
-	$db_request = $db->prepare($handle); 
-	$db_request->execute();
-	$db_output = $db_request->fetchAll(); 
-	return $db_output; // Array
+	$db_request = db_exec("SELECT * FROM 'de_de' 
+						   where user_id='$user_id'");
+						   
+	return $db_request->fetchAll(); 
 }
 
 function db_set($locale, $user_id, $id, $values){
 
 	$db = $GLOBALS["db"];
 	foreach($values as $key => $val){
-		$handle = "UPDATE '$locale' SET $key='$val' WHERE id='$userID'";
-		$db_request = $db->prepare($handle);
-		$db_request->execute();
+		db_exec("UPDATE '$locale' SET $key='$val' WHERE id='$userID'");
 	}
 	return 1;
 }
 
-//Function:	Example calls
-//Called:	on init
+// Function:	Example calls
+// Called:	on init
 function main(){
 
-	//db_init(): // Create new db if missing
-	//echo db_get("de_de",1,1)["last_name"]; // String (Single Field)
-	//print_r( db_get("de_de",1,1) ); // Array (All entry data)
+	// db_init(): // Create new db if missing
+	// echo db_get("de_de",1,1)["last_name"]; // String (Single Field)
+	// print_r( db_get("de_de",1,1) ); // Array (All entry data)
 	print_r(db_get_all(5)); // 2D-Array (All entries from user)
 
 	// Forgot to add city field...
