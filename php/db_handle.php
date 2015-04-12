@@ -30,6 +30,17 @@ function db_exec($handle){
 	return $db_request;
 }
 
+// Function: 	Convert array to JSON
+// Call: 	db_json(array)
+// Return: JSON object
+function db_json($array){ 
+
+	return json_encode($array,JSON_PRETTY_PRINT);
+}
+
+// Function: 	Check if entry exists
+// Call: 	db_entry_exists(table,key,value)
+// Return:	BOOL
 function db_entry_exists($table,$key,$val){
 
    	$IDq = db_exec("SELECT * FROM '$table' WHERE $key='$val'");
@@ -39,6 +50,9 @@ function db_entry_exists($table,$key,$val){
    	else{ return false; }
 }
 
+// Function: 	Generate unique hash
+// Call: 	db_hash_gen()
+// Return	STRING
 function db_hash_gen(){
 
 	while(true){
@@ -47,62 +61,60 @@ function db_hash_gen(){
 		for ($i = 0; $i < 8; $i++) {
 			$hash .= chr(rand(ord('a'), ord('z'))); 
 		}
-		if (!db_entry_exists("Hashes","hash","$hash")) {
-			echo "<b>$hash</b> doesn't exist yet. <br />";
+		if (!db_entry_exists("Index","hash","$hash")) {
 			return $hash;
 		}
 	}
 }
 
 // Function: 	Create new DB address entry
-// Call : 	db_add_address("de_de", $array)
+// Call : 	db_add_address("de_de",array)
 function db_add_address($locale, $values){
 
 	$keys = '"'.implode('", "',array_keys($values)).'"';
 	$vals = '"'.implode('", "',array_values($values)).'"';
-	
-	$uID = $values["user_id"];
+	$user_id = $values["user_id"];
 	$hash = db_hash_gen();
 	db_exec("INSERT INTO '$locale' ($keys) VALUES ($vals)");
-	db_exec("INSERT INTO 'Hashes' (locale,table_id,user_id,hash) VALUES ('$locale',last_insert_rowid(),'$uID','$hash')");
+	db_exec("INSERT INTO 'Index' (locale,table_id,user_id,hash) VALUES ('$locale',last_insert_rowid(),'$user_id','$hash')");
 	return 1;
 }
 
 // Function: 	Get all data for a certain address entry
 //		(DB needs better id system!)
-// Call: 	db_get_address("de_de",user_id,id)
+// Call: 	db_get_address(hash)
 // Return:	Array
-function db_get_address($locale, $user_id, $id){
+function db_get_address($hash){
 
-	$db_request = db_exec("SELECT * FROM '$locale' where user_id='$user_id' AND id='$id'");
-	return json_encode($db_request->fetchAll(PDO::FETCH_ASSOC)[0], JSON_PRETTY_PRINT);
-}
-
-// Function: 	Get all entries for a certain user ID
-// Call: 	db_get_all_address(user_id)
-// Return:	2D-Array
-function db_get_all_address($user_id){
-
-	$db_request = db_exec("SELECT * FROM 'de_de' where user_id='$user_id'");
-	return json_encode($db_request->fetchAll(PDO::FETCH_ASSOC), JSON_PRETTY_PRINT); 
-}
-
-function db_get_hash($hash){
-
-	$db_request = db_exec("SELECT * FROM 'Hashes' WHERE hash='$hash'");
+	$db_request = db_exec("SELECT * FROM 'Index' WHERE hash='$hash'");
 	$index = $db_request->fetchAll(PDO::FETCH_ASSOC)[0];
 	$locale = $index["locale"];
 	$id = $index["table_id"];
-	
 	$db_request = db_exec("SELECT * FROM '$locale' WHERE id='$id'");
-	return json_encode($db_request->fetchAll(PDO::FETCH_ASSOC), JSON_PRETTY_PRINT);
-
-	
+	return db_json($db_request->fetchAll(PDO::FETCH_ASSOC));
 }
 
-function db_get_all_hash(){
+// Function: 	Get all entries for a certain user ID
+// Call: 	db_get_all_by_user(user_id)
+// Return:	2D-Array
+function db_get_all_by_user($user_id){
 
-	$db_request = db_exec("SELECT * FROM 'Hashes'");
+	$db_request = db_exec("SELECT hash,locale,table_id FROM 'Index' where user_id='$user_id'");
+	$entries = $db_request->fetchAll(PDO::FETCH_ASSOC);
+	foreach($entries as $entry){
+		$locale = $entry["locale"];
+		$id = $entry["table_id"];
+		$db_request = db_exec("SELECT * FROM '$locale' WHERE id='$id'");
+		$entries_query[] = $db_request->fetchAll(PDO::FETCH_ASSOC);
+	}
+	return db_json($entries_query);
+}
+
+// Function:	Get index of all addresses
+// Call: 	db_get_index()
+function db_get_index(){
+
+	$db_request = db_exec("SELECT * FROM 'Index'");
 	return json_encode($db_request->fetchAll(PDO::FETCH_ASSOC), JSON_PRETTY_PRINT); 
 }
 
@@ -121,17 +133,14 @@ function db_set_address($locale, $user_id, $id, $values){
 function main(){
 
 	db_init(); // Create new db if missing
-	// echo db_get_address("de_de",1,1)["last_name"]; // String (Single Field)
-	// print_r( db_get_address("de_de",1,1) ); // Array (All entry data)
 	
-	echo "<h2>Single entry by hash</h2>";
-	echo db_get_hash("ckbrqzwy");
-	echo "<h2>Index entries</h2>";
-	echo db_get_all_hash();
-	echo "<h2>Address entries</h2>";
-	echo db_get_all_address(5); // 2D-Array (All entries from user)
+	echo "<h2>Single entry by hash: fifbjiqy</h2>";
+	echo db_get_address("fifbjiqy");
+	echo "<h2>Index of all entries</h2>";
+	echo db_get_index();
+	echo "<h2>Address entries by user ID</h2>";
+	echo db_get_all_by_user(5); // 2D-Array (All entries from user)
 
-	// Forgot to add city field...
 	db_add_address("de_de", [
 		user_id => "5",
 		type => "1",
