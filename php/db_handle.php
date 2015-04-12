@@ -48,7 +48,7 @@ function db_hash_gen(){
 			$hash .= chr(rand(ord('a'), ord('z'))); 
 		}
 		if (!db_entry_exists("Hashes","hash","$hash")) {
-			echo "Doesn't exist yet";
+			echo "<b>$hash</b> doesn't exist yet. <br />";
 			return $hash;
 		}
 	}
@@ -70,7 +70,7 @@ function db_add_address($locale, $values){
 function db_get_address($locale, $user_id, $id){
 
 	$db_request = db_exec("SELECT * FROM '$locale' where user_id='$user_id' AND id='$id'");
-	return $db_request->fetchAll(PDO::FETCH_ASSOC)[0];
+	return json_encode($db_request->fetchAll(PDO::FETCH_ASSOC)[0], JSON_PRETTY_PRINT);
 }
 
 // Function: 	Get all entries for a certain user ID
@@ -79,7 +79,7 @@ function db_get_address($locale, $user_id, $id){
 function db_get_all_address($user_id){
 
 	$db_request = db_exec("SELECT * FROM 'de_de' where user_id='$user_id'");
-	return $db_request->fetchAll(PDO::FETCH_ASSOC); 
+	return json_encode($db_request->fetchAll(PDO::FETCH_ASSOC), JSON_PRETTY_PRINT); 
 }
 
 // Function: 	Modify values of an address entry
@@ -99,7 +99,7 @@ function main(){
 	db_init(); // Create new db if missing
 	// echo db_get_address("de_de",1,1)["last_name"]; // String (Single Field)
 	// print_r( db_get_address("de_de",1,1) ); // Array (All entry data)
-	//db_hash_gen();
+	db_hash_gen();
 	print_r(db_get_all_address(5)); // 2D-Array (All entries from user)
 
 	// Forgot to add city field...
