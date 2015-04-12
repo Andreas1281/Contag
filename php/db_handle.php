@@ -34,7 +34,7 @@ function db_exec($handle){
 // Call: 	db_json(array)
 // Return: JSON object
 function db_json($array){ 
-
+	
 	return json_encode($array,JSON_PRETTY_PRINT);
 }
 
@@ -85,7 +85,9 @@ function db_hash_gen(){
 }
 
 // Function: 	Create new DB address entry
-// Call : 	db_add_address(session,"de_de",array)
+// Needed:	type & access values, others are optional
+// Call: 	db_add_address(session,"de_de",array)
+// Return:	hash
 function db_add_address($session, $locale, $values){
 
 	$user_id = $session["id"];
@@ -97,7 +99,7 @@ function db_add_address($session, $locale, $values){
 	$hash = db_hash_gen();
 	db_exec("INSERT INTO '$locale' ($keys) VALUES ($vals)");
 	db_exec("INSERT INTO 'Index' (locale,table_id,user_id,hash,type,access) VALUES ('$locale',last_insert_rowid(),'$user_id','$hash','$type','$access')");
-	return 1;
+	return $hash;
 }
 
 // Function: 	Get all data for a certain address entry
@@ -111,7 +113,9 @@ function db_get_address($hash){
 	$locale = $index["locale"];
 	$id = $index["table_id"];
 	$db_request = db_exec("SELECT * FROM '$locale' WHERE id='$id'");
-	return db_json($db_request->fetchAll(PDO::FETCH_ASSOC));
+	$db_return = $db_request->fetchAll(PDO::FETCH_ASSOC)[0];
+	unset($db_return["id"]);
+	return db_json($db_return);
 }
 
 // Function: 	Get all entries for a certain user ID
@@ -122,10 +126,16 @@ function db_get_all_by_user($user_id){
 	$db_request = db_exec("SELECT hash,locale,table_id FROM 'Index' where user_id='$user_id'");
 	$entries = $db_request->fetchAll(PDO::FETCH_ASSOC);
 	foreach($entries as $entry){
+	
 		$locale = $entry["locale"];
 		$id = $entry["table_id"];
+		
 		$db_request = db_exec("SELECT * FROM '$locale' WHERE id='$id'");
-		$entries_query[] = $db_request->fetchAll(PDO::FETCH_ASSOC);
+		$db_return = $db_request->fetchAll(PDO::FETCH_ASSOC)[0];
+		
+		unset($db_return["id"]);
+		$db_return["hash(DEBUG)"] = $entry["hash"];
+		$entries_query[] = $db_return;
 	}
 	return db_json($entries_query);
 }
@@ -164,29 +174,23 @@ function main(){
 	$SESSION["id"] = 4; // For debugging
 	db_init(); // Create new db if missing
 	
+	echo "<h2>Single index by hash: siatdaye</h2>";
+	echo db_get_index("siatdaye");
+	
 	echo "<h2>Single entry by hash: siatdaye</h2>";
 	echo db_get_address("siatdaye");
 	
-	echo "<h2>Single index by hash: siatdaye</h2>";
-	echo db_get_index("siatdaye");
-
 	// Check user permission for entry
 	echo "<h2>Access level for hash: siatdaye</h2>";
 	switch(db_check_permission($SESSION,"siatdaye")){
 	
-		case "0": echo "No access allowed"; break;
-		case "R": echo "Read only access"; break;
-		case "W": echo "Full write access"; break;
+		case "0": echo "<p style='color:red'>No access allowed</p>"; break;
+		case "R": echo "<p style='color:yellow'>Read only access</p>"; break;
+		case "W": echo "<p style='color:green'>Full write access</p>"; break;
 		
 	}
 
-	echo "<h2>Index of all entries</h2>";
-	echo db_get_all_index();
-	
-	echo "<h2>All entries by current user</h2>";
-	echo db_get_all_by_user($SESSION["id"]);
-
-	db_add_address($SESSION, "de_de", [
+	$new_entry = db_add_address($SESSION, "de_de", [
 		type => 1, access => 2,
 		organisation => "Wessolly Mobile Marketing",
 		first_name => "Andreas",
@@ -207,6 +211,15 @@ function main(){
 		mobile_number => "1234567",
 		fax_number => "1234568"
 	]);
+	
+	echo "<h2>New entry</h2>Created new entry $new_entry for user ".$SESSION["id"]."!";
+	
+	echo "<h2>Index of all entries</h2>";
+	echo db_get_all_index();
+	
+	echo "<h2>All entries by current user</h2>";
+	echo db_get_all_by_user($SESSION["id"]);
+
 	return 1;
 }
 
