@@ -60,7 +60,12 @@ function db_add_address($locale, $values){
 
 	$keys = '"'.implode('", "',array_keys($values)).'"';
 	$vals = '"'.implode('", "',array_values($values)).'"';
+	
+	$uID = $values["user_id"];
+	$hash = db_hash_gen();
 	db_exec("INSERT INTO '$locale' ($keys) VALUES ($vals)");
+	db_exec("INSERT INTO 'Hashes' (locale,table_id,user_id,hash) VALUES ('$locale',last_insert_rowid(),'$uID','$hash')");
+	return 1;
 }
 
 // Function: 	Get all data for a certain address entry
@@ -82,6 +87,12 @@ function db_get_all_address($user_id){
 	return json_encode($db_request->fetchAll(PDO::FETCH_ASSOC), JSON_PRETTY_PRINT); 
 }
 
+function db_get_all_hashes(){
+
+	$db_request = db_exec("SELECT * FROM 'Hashes'");
+	return json_encode($db_request->fetchAll(PDO::FETCH_ASSOC), JSON_PRETTY_PRINT); 
+}
+
 // Function: 	Modify values of an address entry
 // Call: 	db_set_address("de_de",user_id,id,array)
 function db_set_address($locale, $user_id, $id, $values){
@@ -99,8 +110,11 @@ function main(){
 	db_init(); // Create new db if missing
 	// echo db_get_address("de_de",1,1)["last_name"]; // String (Single Field)
 	// print_r( db_get_address("de_de",1,1) ); // Array (All entry data)
-	db_hash_gen();
-	print_r(db_get_all_address(5)); // 2D-Array (All entries from user)
+	
+	echo "<h2>Index entries</h2>";
+	echo db_get_all_hashes();
+	echo "<h2>Address entries</h2>";
+	echo db_get_all_address(5); // 2D-Array (All entries from user)
 
 	// Forgot to add city field...
 	db_add_address("de_de", [
