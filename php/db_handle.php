@@ -87,7 +87,20 @@ function db_get_all_address($user_id){
 	return json_encode($db_request->fetchAll(PDO::FETCH_ASSOC), JSON_PRETTY_PRINT); 
 }
 
-function db_get_all_hashes(){
+function db_get_hash($hash){
+
+	$db_request = db_exec("SELECT * FROM 'Hashes' WHERE hash='$hash'");
+	$index = $db_request->fetchAll(PDO::FETCH_ASSOC)[0];
+	$locale = $index["locale"];
+	$id = $index["table_id"];
+	
+	$db_request = db_exec("SELECT * FROM '$locale' WHERE id='$id'");
+	return json_encode($db_request->fetchAll(PDO::FETCH_ASSOC), JSON_PRETTY_PRINT);
+
+	
+}
+
+function db_get_all_hash(){
 
 	$db_request = db_exec("SELECT * FROM 'Hashes'");
 	return json_encode($db_request->fetchAll(PDO::FETCH_ASSOC), JSON_PRETTY_PRINT); 
@@ -111,8 +124,10 @@ function main(){
 	// echo db_get_address("de_de",1,1)["last_name"]; // String (Single Field)
 	// print_r( db_get_address("de_de",1,1) ); // Array (All entry data)
 	
+	echo "<h2>Single entry by hash</h2>";
+	echo db_get_hash("ckbrqzwy");
 	echo "<h2>Index entries</h2>";
-	echo db_get_all_hashes();
+	echo db_get_all_hash();
 	echo "<h2>Address entries</h2>";
 	echo db_get_all_address(5); // 2D-Array (All entries from user)
 
