@@ -192,24 +192,25 @@ function main(){
 	$SESSION["id"] = 1; // For debugging
 	db_init(); // Create new db if missing
 	
-	echo "<h2>Single index by hash: ypytrmyr</h2>";
+	echo "<h2>Index for: ypytrmyr</h2>";
 	echo db_get_index("ypytrmyr");
 	
-	echo "<h2>Single entry by hash: ypytrmyr</h2>";
+	echo "<h2>Address for: ypytrmyr</h2>";
 	echo db_get_address("ypytrmyr");
 	
 	// Check user permission for entry
-	echo "<h2>Access level user ".$SESSION["id"]." for hash: siatdaye</h2>";
+	echo "<h2>Access Level for User ".$SESSION["id"]." & Hash: ypytrmyr</h2>";
 	switch(db_check_permission($SESSION,"ypytrmyr")){
 	
-		case "N": echo "<p style='color:red'>No access allowed</p>"; break;
-		case "R": echo "<p style='color:BADA55'>Read only access</p>"; break;
-		case "W": echo "<p style='color:green'>Full write access<///p>"; break;
+		case "N": echo "<b style='color:red'>No access allowed</b>"; break;
+		case "R": echo "<b style='color:BADA55'>Read only access</b>"; break;
+		case "W": echo "<b style='color:green'>Full write access</b>"; break;
 		
 	}
 	
-	echo "<h2>User</h2>";
+	echo "<h2>Current User</h2>";
 	print_r(db_get_user($SESSION["id"]));
+	
 	db_add_user([
 		name => "testuser",
 		password => "testpw",
@@ -238,12 +239,12 @@ function main(){
 		fax_number => "1234568"
 	]);
 	
-	echo "<h2>New entry</h2>Created new entry $new_entry for user ".$SESSION["id"]."!";
+	echo "<h2>New Entry</h2><p>Created new entry $new_entry for user ".$SESSION["id"]."!</p>";
 	
-	echo "<h2>Index of all entries</h2>";
+	echo "<h2>Index of All Entries</h2>";
 	echo db_get_all_index();
 	
-	echo "<h2>All entries by current user</h2>";
+	echo "<h2>All Entries by Current User</h2>";
 	echo db_get_all_by_user($SESSION["id"]);
 
 	return 1;
