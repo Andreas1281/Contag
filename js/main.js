@@ -59,6 +59,26 @@ function load(page) {
 	});
 }
 
+function load_form(id,locale) {
+
+        $.ajax({
+                url: "./php/forms.php?locale="+locale,
+                success: function(form_html){
+                       	$("#"+id).html(form_html);
+            	},
+            	error: function() { alert("Fehler"); }
+        });
+
+}
+
+function update_form(language,country,form) {
+
+	language = $("#"+language).val();
+	country = $("#"+country).val();
+	if (!language || !country) return;
+	load_form(form,language+"_"+country);
+}
+
 // Copy to clipboard
 function copy(id) {
 
@@ -86,8 +106,8 @@ function edit_list(hash) {
 			$("label").each( function() { $(this).addClass("active");});
 
 			$('#modal_edit').openModal();
-            },
-            error: function() { alert("Fehler"); }
+            	},
+            	error: function() { alert("Fehler"); }
         });
 }
 
@@ -141,7 +161,7 @@ $("#shoptag_admin").on("click",function() {
 });
 
 // Shoptag: Save
-$("#save_form").submit(function() {
+$("#address_form").submit(function() {
     $.ajax({
            type: "POST",
            url: "php/save.php",
