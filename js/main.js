@@ -141,11 +141,11 @@ $("#shoptag_admin").on("click",function() {
 });
 
 // Shoptag: Save
-$("#address_data").submit(function() {
+$("#save_form").submit(function() {
     $.ajax({
            type: "POST",
            url: "php/save.php",
-           data: $("#address_data").serialize(),
+           data: $("#save_form").serialize(),
            success: function(data)
            {
                 if (data == 0) {  $('#modal_success').openModal(); }

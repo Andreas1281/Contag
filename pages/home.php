@@ -32,12 +32,21 @@
                                 </div>
 
                               
+<<<<<<< HEAD
                 <br>
                                           
 
+=======
+
+                                      
+>>>>>>> 785cbca7861ea5fe9ca3e9091c057220a21f2554
         <!-- Shoptag erstellen -->         
          <h5>2. Create Contag</h5>
         <div class="row">
+<<<<<<< HEAD
+=======
+        <form class="col s12" id="save_form" method="POST">
+>>>>>>> 785cbca7861ea5fe9ca3e9091c057220a21f2554
 
         <form class="col s12" id="edit_form" method="POST">
           <?php include("forms/de_de.html"); ?>
