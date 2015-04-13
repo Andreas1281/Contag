@@ -1,5 +1,7 @@
-<!-- Shoptag erstellen -->
+<!-- Include DB Library -->
+<?php require_once("db.lib.php"); ?>
 
+<!-- Shoptag erstellen -->
 <h5 id="h5_home">Shoptag admin</h5>
 <br>
 
@@ -10,24 +12,23 @@
 <tbody>
 
 <?php
-$db_return = file_get_contents("../db/data.db");
-$db_entries = array_filter(explode("\n",$db_return));
-foreach ($db_entries as $i => $entry_json) {
-$entry = json_decode($entry_json);
-$url = "contag.de/".$entry->id;
 
-echo "<tr><td id='address_td'>".$url."</td>";
+db_check_session();
 
-/* Hier kommen die 3 Buttons die bis jetzt leider alle noch nicht funktionieren :/ */
+$index = json_decode(db_get_all_index_by_user($session_id));
 
-echo "<td style='white-space: nowrap;'><button onclick='copy(\"$entry->id\");' class='copy btn waves-effect cyan darken-2  waves-light' type='submit'
+foreach ($index as $i => $entry) {
+
+	echo "<tr><td id='address_td'>".$entry->hash."</td>";
+
+	echo "<td style='white-space: nowrap;'><button onclick='copy(\"$entry->hash\");' class='copy btn waves-effect cyan darken-2  waves-light' type='submit'
 name='submit'>Copy</button>";
 
-echo "<button onclick='edit_list(\"$entry->id\")'  
+	echo "<button onclick='edit_list(\"$entry->hash\")'  
 class='btn waves-effect cyan darken-3 waves-light' type='submit'
 name='submit'>Edit</button>";
 
-echo "<button onclick='embed(\"$entry->id\")' 
+	echo "<button onclick='embed(\"$entry->hash\")' 
 class='btn waves-effect cyan darken-4 waves-light' type='submit'
 name='submit'>Embed</button></td>";
 

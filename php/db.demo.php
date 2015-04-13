@@ -6,25 +6,30 @@ require_once("db.lib.php");
 
 function main(){
 
+	$hash = "vzwnsugd";
+
+	db_init(); // Create new db if missing
         session_start();
-        $SESSION["id"] = 1; // For debugging
-        db_init(); // Create new db if missing
+	if (!$SESSION["id"]) { $SESSION["id"] = 0; }
+
+	// Check user permission for entry 
+	switch(db_check_permission($SESSION,$hash)){
+
+                case "N": echo die("No access allowed"); break;
+                case "R":
+                case "W": echo "<h2>".$hash."</h2>".
+			  db_get_index($hash).
+			  db_get_address($hash); break;
+        }
+
+	echo db_get_all_index_by_user(1);
+	die();
 
         echo "<h2>Index for: vzwnsugd</h2>";
         echo db_get_index("vzwnsugd");
 
         echo "<h2>Address for: vzwnsugd</h2>";
         echo db_get_address("vzwnsugd");
-
-        // Check user permission for entry
-        echo "<h2>Access Level for User ".$SESSION["id"]." & Hash: vzwnsugd</h2>";
-        switch(db_check_permission($SESSION,"vzwnsugd")){
-
-                case "N": echo "<b style='color:red'>No access allowed</b>"; break;
-                case "R": echo "<b style='color:BADA55'>Read only access</b>"; break;
-                case "W": echo "<b style='color:green'>Full write access</b>"; break;
-
-        }
 
         echo "<h2>Current User</h2>";
         print_r(db_get_user($SESSION["id"]));

@@ -1,5 +1,7 @@
 <?php
- 
+session_start();
+$session_id = ($_SESSION["id"]) ? $_SESSION["id"] : NULL ;
+
 // Load DB object for all functions
 try { $db = new PDO("sqlite:../db/db.sqlite"); 
     } catch(PDOException $e) { die("DB error: ".$e); }
@@ -47,6 +49,14 @@ function db_entry_exists($table,$key,$val){
    	
   	if($IDf[$key]){ return true; } 
    	else{ return false; }
+}
+
+// Function:    Check for session or die
+// Call:        db_check_session()
+function db_check_session(){
+
+	if (!$GLOBALS["session_id"]){ die("Bitte anmelden"); }
+	return 1;
 }
 
 // Function: 	Check permission for session
@@ -169,6 +179,14 @@ function db_get_all_index(){
 
 	$db_request = db_exec("SELECT * FROM 'Index'");
 	return db_json($db_request->fetchAll(PDO::FETCH_ASSOC)); 
+}
+
+// Function:    Get all index entries by user ID
+// Call:        db_get_all_index_by_user()
+function db_get_all_index_by_user($user_id){
+
+        $db_request = db_exec("SELECT * FROM 'Index' WHERE user_id='$user_id'");
+        return db_json($db_request->fetchAll(PDO::FETCH_ASSOC));
 }
 
 // Function:	Get index of certain hash
