@@ -10,7 +10,7 @@ function main(){
 
 	db_init(); // Create new db if missing
         session_start();
-	if (!$SESSION["id"]) { $SESSION["id"] = 0; }
+/*	if (!$SESSION["id"]) { $SESSION["id"] = 0; }
 
 	// Check user permission for entry 
 	switch(db_check_permission($SESSION,$hash)){
@@ -34,19 +34,23 @@ function main(){
         echo "<h2>Current User</h2>";
         print_r(db_get_user($SESSION["id"]));
 
-        /*
+*/
+
+        /* 
         db_add_user([
                 name => "testuser",
                 password => "testpw",
                 email => "test@email.de"
         ]);
-        */
+	*/
+        
 
-        echo "<h2>All Users</h2>";
-        print_r(db_get_all_user());
+        //echo "<h2>All Users</h2>";
+        //print_r(db_get_all_user());
 
-        $new_entry = db_add_address($SESSION, "de_de", [
-                type => 1, access => 2,
+	
+        $new_entry = db_add_address($_SESSION, [
+                locale => "de_de", type => 1, access => 2,
                 organisation => "Wessolly Mobile Marketing",
                 first_name => "Andreas",
                 last_name => "Wessolly",
@@ -66,14 +70,15 @@ function main(){
                 mobile_number => "1234567",
                 fax_number => "1234568"
         ]);
+	
 
-        echo "<h2>New Entry</h2><p>Created new entry $new_entry for user ".$SESSION["id"]."!</p>";
+        echo "<h2>New Entry</h2><p>Created new entry $new_entry for user ".$_SESSION["id"]."!</p>";
 
         echo "<h2>Index of All Entries</h2>";
         echo db_get_all_index();
 
         echo "<h2>All Entries by Current User</h2>";
-        echo db_get_all_by_user($SESSION["id"]);
+        echo db_get_all_by_user($_SESSION["id"]);
 
         return 1;
 }

@@ -162,13 +162,14 @@ $("#shoptag_admin").on("click",function() {
 
 // Shoptag: Save
 $("#address_form").submit(function() {
+
     $.ajax({
            type: "POST",
            url: "php/save.php",
-           data: $("#save_form").serialize(),
+           data: $("#address_form").serialize(),
            success: function(data)
            {
-                if (data == 0) {  $('#modal_success').openModal(); }
+                if (data != 0) {  $('#modal_success').openModal(); alert(data); }
                 else {  $('#modal_error').openModal(); }
            },
 	   error: function() { alert("Fehler"); }

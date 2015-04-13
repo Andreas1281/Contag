@@ -107,11 +107,12 @@ function db_add_user($values){
 
 // Function: 	Create new DB address entry
 // Needed:	type & access values, others are optional
-// Call: 	db_add_address(session,"de_de",array)
+// Call: 	db_add_address(session, array)
 // Return:	STRING hash
-function db_add_address($session, $locale, $values){
+function db_add_address($session, $values){
 
 	$user_id = $session["id"];
+	$locale = $values["locale"]; unset($values["locale"]);
 	$type = $values["type"]; unset($values["type"]);
 	$access = $values["access"]; unset($values["access"]);
 	$keys = '"'.implode('", "',array_keys($values)).'"';
@@ -119,7 +120,8 @@ function db_add_address($session, $locale, $values){
 	
 	$hash = db_hash_gen();
 	db_exec("INSERT INTO '$locale' ($keys) VALUES ($vals)");
-	db_exec("INSERT INTO 'Index' (locale,table_id,user_id,hash,type,access) VALUES ('$locale',last_insert_rowid(),'$user_id','$hash','$type','$access')");
+	db_exec("INSERT INTO 'Index' (locale,table_id,user_id,hash,type,access) 
+		 VALUES ('$locale',last_insert_rowid(),'$user_id','$hash','$type','$access')");
 	return $hash;
 }
 
@@ -173,6 +175,14 @@ function db_get_all_by_user($user_id){
 	return db_json($entries_query);
 }
 
+// Function:	Get index of certain hash
+// Call: 	db_get_index(hash)
+function db_get_index($hash){
+
+	$db_request = db_exec("SELECT * FROM 'Index' WHERE hash='$hash'");
+	return db_json($db_request->fetchAll(PDO::FETCH_ASSOC)[0]); 
+}
+
 // Function:	Get index of all addresses
 // Call: 	db_get_all_index()
 function db_get_all_index(){
@@ -187,14 +197,6 @@ function db_get_all_index_by_user($user_id){
 
         $db_request = db_exec("SELECT * FROM 'Index' WHERE user_id='$user_id'");
         return db_json($db_request->fetchAll(PDO::FETCH_ASSOC));
-}
-
-// Function:	Get index of certain hash
-// Call: 	db_get_index(hash)
-function db_get_index($hash){
-
-	$db_request = db_exec("SELECT * FROM 'Index' WHERE hash='$hash'");
-	return db_json($db_request->fetchAll(PDO::FETCH_ASSOC)[0]); 
 }
 
 // Function: 	Modify values of an address entry
