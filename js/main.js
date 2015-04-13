@@ -73,16 +73,14 @@ function embed(id) {
 
 
 // Edit: Show
-function edit_list(id) {
+function edit_list(hash) {
 	$.ajax({
-                url: "./php/handle.php?id="+id,
+                url: "./php/handle.php?hash="+hash,
                 success: function(result){
                         var data = JSON.parse(result) || jQuery.parseJSON(result)
                         for (var val in data) {
-                                if ( val == "id" ) { continue; }
 				$("#edit_" + val).val(data[val]);
                 	}
-			$("#edit_form").append("<input type='hidden' name='id' value='" + data.id +"'/>");
 
 			// Make labels behave like any sane label would
 			$("label").each( function() { $(this).addClass("active");});

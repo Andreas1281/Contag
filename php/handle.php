@@ -1,17 +1,9 @@
 <?php
-	
-if (isset($_GET["id"])) {
 
-	$db_return = file_get_contents("../db/data.db");
-	$db_entries = explode("\n",$db_return);
+if (!$_GET["hash"]) { die("No hash"); }
 
-	foreach ($db_entries as $i => $entry_json) {
+require_once("db.lib.php");
+db_check_session();
+echo db_get_address($_GET["hash"]);
 
-		$entry = json_decode($entry_json);
-		if ( $entry->id == $_GET["id"] ) {
-
-			echo $entry_json;
-
-		}	
-	}
-}
+?>
