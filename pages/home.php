@@ -7,74 +7,43 @@
                 </div>
                 <div id="test1" class="col s12">
 
-
-
-        
-
-            <h5>Create Shoptag</h5>
-            <h6>Please choose your language and your Country first!</h6>
+                <h5>Create Shoptag - Please choose your language and your Country first!</h5>
               
-                  <br> 
-                     <!-- Language select -->
+                              <h5>1. Choose Language and Country</h5>
 
-                                        <br>
-
-
-                                          <div class="col s12">
-                              
+                                <div class="row">
                                         <div class="col s6">
-
-                                        <select>
+                                          <select>
                                           <option value="" disabled selected>Choose your language</option>
                                           <option value="1">Deutsch</option>
-                                          <option value="2">Englisch</option>
-                                        </select>
-                   
-               
+                                          
+                                          </select>
                                         </div>
 
-                                         <div class="col s6">
+                                        <div class="col s6">
+                                            <select>
+                                              <option value="" disabled selected>Choose your country:</option>
+                                              <option value="1">Deutschland</option>
+                                              <option value="2">Österreich</option>
+                                              <option value="2">Schweiz</option>
+                                            </select>
+                                                         
+                                        </div>
+                                </div>
 
-                                          <select>
-                                            <option value="" disabled selected>Choose your country:</option>
-                                            <option value="1">Germany</option>
-                                            <option value="2">United Kingdom</option>
-                                            <option value="2">United States</option>
-                                          </select>
-                   
-               
-                                         </div>
-
-                                         </div>
-
-
-                                      
-                                       <br>
-                                       <br>
-
-                                 
-
-                                        <!-- Country select -->
                               
-
-                                      
-
-
-
-
-
-
-
+                <br>
+                                          
 
         <!-- Shoptag erstellen -->         
-    
+         <h5>2. Create Contag</h5>
         <div class="row">
-        <form class="col s12" id="edit_form" method="POST">
 
-        <?php include("forms/de_de.html"); ?>
+        <form class="col s12" id="edit_form" method="POST">
+          <?php include("forms/de_de.html"); ?>
         </form>
-                          </div>
-                      </div>
+        </div>
+        </div>
 
 		      <!-- SHOPTAG: ADMIN -->
                       <div id="test2" class="col s12">

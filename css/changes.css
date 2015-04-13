@@ -293,17 +293,9 @@ padding: 0 1.5rem;
   top: 5px;}
  
   #main_nav{
-  height: 63px;
+  height: 55px;
   padding-top: 0px;
   }
-
-
-
-
-
- 
-
-
  h5 {
   font-size: 1.64rem;
   line-height: 1.804rem;
@@ -416,7 +408,7 @@ h6 {
   margin-bottom: 12px;
   margin-top: 12px;
   padding: 0 1rem;
-  margin-left: 1rem;
+ 
   margin-right: 10px;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -1178,6 +1170,23 @@ btn, .btn-large {
 
 .modal .modal-footer {
   background-color: #fff;
+}
+
+
+.select-wrapper input.select-dropdown {
+  margin-left: 0.75rem;
+
+}
+
+
+
+.modal .modal-footer .btn, .modal .modal-footer .btn-large, .modal .modal-footer .btn-flat {
+  float: right;
+  margin: 5px !important;
+  margin-bottom: 12px !important;
+  margin-top: 12px !important;
+  padding: 0 1rem !important;
+  margin-right: 10px !important;
 }
 
 
