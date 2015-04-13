@@ -1,5 +1,5 @@
 <?php
 session_start();
-$_SESSION["id"] = "testuser";
+$_SESSION["id"] = 1;
 echo "klappt";
 ?>
