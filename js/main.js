@@ -59,6 +59,7 @@ function load(page) {
 	});
 }
 
+// Load form
 function load_form(id,locale) {
 
         $.ajax({
@@ -71,12 +72,24 @@ function load_form(id,locale) {
 
 }
 
+// Update form
 function update_form(language,country,form) {
 
-	language = $("#"+language).val();
-	country = $("#"+country).val();
-	if (!language || !country) return;
-	load_form(form,language+"_"+country);
+        language = $("#"+language).val();
+        country = $("#"+country).val();
+        if (!language || !country) return;
+        load_form(form,language+"_"+country);
+}
+
+// Clear form
+function clear_form(form) {
+
+	$("#"+form)[0].reset();
+	$("#"+form+" input").each(function() {
+		// Materialize lable bug workaround
+		$(this).focus();
+		$(this).blur();
+	});
 }
 
 // Copy to clipboard
@@ -169,7 +182,10 @@ $("#address_form").submit(function() {
            data: $("#address_form").serialize(),
            success: function(data)
            {
-                if (data != 0) {  $('#modal_success').openModal(); alert(data); }
+                if (data != 0) {  
+			$('#modal_success').openModal(); 
+			clear_form("address_form");
+ 	   }
                 else {  $('#modal_error').openModal(); }
            },
 	   error: function() { alert("Fehler"); }
