@@ -1033,11 +1033,11 @@ text-align: left;
  
 .wrapper-dropdown-5 {
     /* Size & position */
-    position: relative;
-    width: 240px;
-    margin: 0 auto;
-    padding: 12px 15px;
-      background: #C6D2DC;
+  position: relative;
+  width: 240px;
+  margin: 0 auto;
+  padding: 10px 30px 15px 10px;
+  background: #C6D2DC;
  
     /* Styles */
  
@@ -1188,6 +1188,12 @@ btn, .btn-large {
   padding: 0 1rem !important;
   margin-right: 10px !important;
 }
+
+
+
+input[type=text], input[type=password], input[type=email], input[type=url], input[type=date], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
+  width: 95%;
+  }
 
 
 
