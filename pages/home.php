@@ -58,18 +58,10 @@
                               
 
                                       
-
-
-
-
-
-
-
-
         <!-- Shoptag erstellen -->         
     
         <div class="row">
-        <form class="col s12" id="edit_form" method="POST">
+        <form class="col s12" id="save_form" method="POST">
 
         <?php include("forms/de_de.html"); ?>
         </form>

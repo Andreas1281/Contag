@@ -1,23 +1,15 @@
 <?php
 
-function contag_id() {
+require_once("db.lib.php");
 
-	$id = "";
-	for ($i = 0; $i < 8; $i++) {
-		$id .= chr(rand(ord('a'), ord('z'))); 
-	}
-	return $id;
-}
+db_check_session();
+
+if (!$_POST) { die("Keine Daten."); }
+
+$hash = db_add_address($_SESSION,"de_de",$_POST);
+echo "Added Address: $hash";
 
 
-	$_POST["id"] = contag_id();  
-	$form_json = json_encode($_POST);
-	if ( ! file_put_contents ("../db/data.db", $form_json."\n", FILE_APPEND) ) {
-		echo 1;	
-	}
-	else {
-		echo 0;
-	}
 ?>
 
 
