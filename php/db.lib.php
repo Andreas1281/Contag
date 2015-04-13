@@ -120,6 +120,12 @@ function db_get_user($id){
 	return db_json($db_request->fetchAll(PDO::FETCH_ASSOC)[0]);
 }
 
+function db_get_all_user(){
+
+        $db_request = db_exec("SELECT * FROM 'Users'");
+        return db_json($db_request->fetchAll(PDO::FETCH_ASSOC));
+}
+
 // Function: 	Get all data for a certain address entry
 //		(DB needs better id system!)
 // Call: 	db_get_address(hash)
@@ -192,15 +198,15 @@ function main(){
 	$SESSION["id"] = 1; // For debugging
 	db_init(); // Create new db if missing
 	
-	echo "<h2>Index for: ypytrmyr</h2>";
-	echo db_get_index("ypytrmyr");
+	echo "<h2>Index for: vzwnsugd</h2>";
+	echo db_get_index("vzwnsugd");
 	
-	echo "<h2>Address for: ypytrmyr</h2>";
-	echo db_get_address("ypytrmyr");
+	echo "<h2>Address for: vzwnsugd</h2>";
+	echo db_get_address("vzwnsugd");
 	
 	// Check user permission for entry
-	echo "<h2>Access Level for User ".$SESSION["id"]." & Hash: ypytrmyr</h2>";
-	switch(db_check_permission($SESSION,"ypytrmyr")){
+	echo "<h2>Access Level for User ".$SESSION["id"]." & Hash: vzwnsugd</h2>";
+	switch(db_check_permission($SESSION,"vzwnsugd")){
 	
 		case "N": echo "<b style='color:red'>No access allowed</b>"; break;
 		case "R": echo "<b style='color:BADA55'>Read only access</b>"; break;
@@ -211,11 +217,16 @@ function main(){
 	echo "<h2>Current User</h2>";
 	print_r(db_get_user($SESSION["id"]));
 	
+	/*
 	db_add_user([
 		name => "testuser",
 		password => "testpw",
 		email => "test@email.de"
 	]);
+	*/
+
+        echo "<h2>All Users</h2>";
+        print_r(db_get_all_user());
 
 	$new_entry = db_add_address($SESSION, "de_de", [
 		type => 1, access => 2,
