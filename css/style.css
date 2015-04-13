@@ -18,7 +18,7 @@ a:hover {
 
 body.home {
   /* Location of the image */
-  background-image: url('http://de.goodbarber.com/_public/css/goodbarber/v3/reseller-banner-bg.jpg');
+  
   
   /* Background image is centered vertically and horizontally at all times */
   background-position: center center;
@@ -36,5 +36,5 @@ body.home {
   
   /* Set a background color that will be displayed
      while the background image is loading */
-  background-color: #464646;
+
 }
