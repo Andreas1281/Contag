@@ -116,7 +116,7 @@ function edit_list(hash) {
                 	}
 
 			// Make labels behave like any sane label would
-			$("label").each( function() { $(this).addClass("active");});
+			$("#edit_form label").each( function() { $(this).addClass("active");});
 
 			$('#modal_edit').openModal();
             	},
@@ -127,7 +127,7 @@ function edit_list(hash) {
 // Retrieve shoptag
 function request(id) {
             $.ajax({
-                url: "./php/handle.php?id="+id,
+                url: "./php/handle.php?hash="+id,
                 success: function(result){
                         var data = JSON.parse(result) || jQuery.parseJSON(result)
                         $("#results").empty();
