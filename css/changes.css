@@ -103,7 +103,7 @@ td.select, th {
 #address_td {
  
   text-align: left !important;
-  padding-left: 1rem;
+  padding-left: 1.5rem;
   font-size: 1.2rem;
  }
  
@@ -254,8 +254,21 @@ padding: 0 1.5rem;
     display: inline-block;
     font-size: 2.1rem;
     margin-left: 0.5rem;
+      
     padding: 0; }
 
+ @media only screen and (max-width : 992px) {
+      nav .brand-logo {
+      
+        margin-top: 2rem;
+      }
+
+      #nav_top_right{
+        display: none;
+      }
+
+
+ }
 
 
 
@@ -429,7 +442,7 @@ h6 {
   background-color: #fff;
 
   max-height: 85%;
-  width: 43%;
+  width: 73%;
   top: 16% !important;
    }
 
@@ -1158,7 +1171,14 @@ btn, .btn-large {
   background-color: #93A42B;
 }
 
-http://localhost/Contag/
+.waves-effect{
+  z-index: 0;
+}
+
+
+.modal .modal-footer {
+  background-color: #fff;
+}
 
 
 

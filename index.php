@@ -25,14 +25,16 @@
   <nav id="main_nav" class="cyan lighten-1" role="navigation">
     <div class="container">
       <div class="nav-wrapper"><a id="logo-container" onclick="load('index');" class="brand-logo">SHOPTAG</a>
-        <ul class="right">
+        <ul class="right" id="nav_top_right">
           <li><a onclick="load('home');">Contags</a></li>
           <li><a onclick="load('select');">Setup</a></li>
           <li><a onclick="load('retrieve');">Check Code</a></li>
           <li><a>Hello, <?php echo $_SESSION["id"];?> !</a></li> 
         </ul>
         <ul id="nav-mobile" class="side-nav">
-          <li><a href="#">Navbar Link</a></li>
+          <li><a onclick="load('home');">Contags</a></li>
+          <li><a onclick="load('select');">Setup</a></li>
+          <li><a onclick="load('retrieve');">Check Code</a></li>
         </ul>
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
       </div>
