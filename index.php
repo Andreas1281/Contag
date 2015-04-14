@@ -24,42 +24,59 @@
 	if (isset($_SESSION["id"])) {?>
 
  <!-- Main bar -->
-  <nav id="main_nav" class="cyan lighten-1" role="navigation">
-    <div class="container">
-      <div class="nav-wrapper"><a id="logo-container" onclick="load('index');" class="brand-logo">SHOPTAG</a>
-        <ul class="right" id="nav_top_right">
-          <li><a onclick="load('home');">Contags</a></li>
-          <li><a onclick="load('select');">Setup</a></li>
-          <li><a onclick="load('retrieve');">Check Code</a></li>
-          <li><a>Hello, <?php echo $_SESSION["id"];?> !</a></li> 
-        </ul>
-        <ul id="nav-mobile" class="side-nav">
-          <li><a onclick="load('home');">Contags</a></li>
-          <li><a onclick="load('select');">Setup</a></li>
-          <li><a onclick="load('retrieve');">Check Code</a></li>
-        </ul>
-        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-      </div>
-    </div>
-  </nav>
-
  
-    <div class="container">
-      <div class="nav-wrapper right_user">
-        <!-- User Dropdown -->       
-          <div id="dd" class="wrapper-dropdown-5" tabindex="1">
 
-          <img class="circle"   id="userpic" src="images/user.png"><h6 id="username">Wessolly Mobile Marketing</h6>
-            <ul class="dropdown">
-              <li><a href="#"><i class="icon-user"></i>Profile</a></li>
-              <li><a href="#"><i class="icon-cog"></i>Settings</a></li>
-              <li><a href="#"><i class="icon-remove"></i>Log out</a></li>
-            </ul>
-          </div>
-  <!-- User Dropdown -->  
-        
+<div class="row " id="main_nav"  role="navigation">
+
+  
+  <div class="col s10 cyan lighten-1">
+    
+   <nav class=" cyan lighten-1">
+      <div class="container">
+        <div class="nav-wrapper"><a id="logo-container" onclick="load('index');" class="brand-logo">SHOPTAG</a>
+          <ul class="right" id="nav_top_right">
+            <li><a onclick="load('home');">Contags</a></li>
+            <li><a onclick="load('select');">Setup</a></li>
+            <li><a onclick="load('retrieve');">Check Code</a></li>
+            <li><a>Hello, <?php echo $_SESSION["id"];?> !</a></li> 
+          </ul>
+          <ul id="nav-mobile" class="side-nav">
+            <li><a onclick="load('home');">Contags</a></li>
+            <li><a onclick="load('select');">Setup</a></li>
+            <li><a onclick="load('retrieve');">Check Code</a></li>
+          </ul>
+          <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+        </div>
+      </div>
+   </nav>
+
+  </div>
+  
+  <div class="col s2 cyan teal-1 ">
+
+    <div class="container">
+
+        <div class="nav-wrapper right_user">
+
+          <!-- User Dropdown -->       
+            <div id="dd" class="wrapper-dropdown-5" tabindex="1">
+
+            <img class="circle"   id="userpic" src="images/user.png"><h6 id="username">Wessolly Mobile Marketing</h6>
+              <ul class="dropdown">
+                <li><a href="#"><i class="icon-user"></i>Profile</a></li>
+                <li><a href="#"><i class="icon-cog"></i>Settings</a></li>
+                <li><a href="#"><i class="icon-remove"></i>Log out</a></li>
+              </ul>
+            </div>
+    <!-- User Dropdown -->  
       </div>
     </div>
+
+  </div>
+
+</div>
+ 
+  
 
 
   <!-- LOGGED OUT ################################################-->
@@ -68,7 +85,7 @@
  <!-- Main bar -->
   <nav id="main_nav" class="cyan lighten-1" role="navigation">
     <div class="container">
-      <div class="nav-wrapper"><a id="logo-container" onclick="load('index');" class="brand-logo">SHOPTAG</a>
+      <div class="nav-wrapper">
         <ul class="right">
           <li><a class="modal-trigger" href="#modal_register">Register</a></li>
           <li><a class="modal-trigger" href="#modal_register">Login</a></li>
