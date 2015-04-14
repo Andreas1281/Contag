@@ -253,6 +253,7 @@ padding: 0 1.5rem;
   nav .brand-logo {
     position: absolute;
     color: #fff;
+    font-weight: 300;
     display: inline-block;
     font-size: 2.1rem;
     margin-left: 0.5rem;
@@ -1036,10 +1037,10 @@ text-align: left;
  
 .wrapper-dropdown-5 {
     /* Size & position */
-  position: relative;
-  width: 240px;
-  margin: 0 auto;
-  padding: 10px 30px 15px 10px;
+   position: relative;
+  width: 18.2rem;
+  margin: 0px 5px 0px 0px;
+  padding: 15px 10px 29px 10px;
 
  
     /* Styles */
@@ -1127,7 +1128,7 @@ text-align: left;
  
 .wrapper-dropdown-5.active {
     border-radius: 5px 5px 0 0;
-    background: #4cbeff;
+    
     box-shadow: none;
     border-bottom: none;
     color: white;
@@ -1213,6 +1214,14 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
   nav{
     box-shadow: none;
   }
+
+
+  @media only screen and (min-width: 601px) {
+.row .col.m12 {
+  width: 99%;
+  margin-left: 0;
+}
+}
 
 
 
