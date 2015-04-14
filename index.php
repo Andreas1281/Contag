@@ -21,14 +21,15 @@
 
   <!-- LOGGED IN ################################################-->
   <?php session_start();
-	if (isset($_SESSION["id"])) {?>
+	if (isset($_SESSION["id"])) {
 
- <!-- Main bar -->
- 
+		// Set session Name for testing
+        	if (!$_SESSION["name"]) { $_SESSION["name"] = "Wessolly Mobile Marketing"; } ?>
 
+<!-- Main bar -->
 <div class="row " id="main_nav"  role="navigation">
 
-  
+
   <div class="col s9 m9 l10 cyan lighten-1">
     
    <nav class=" cyan lighten-1">
@@ -38,10 +39,9 @@
             <li><a onclick="load('home');">Contags</a></li>
             <li><a onclick="load('select');">Setup</a></li>
             <li><a onclick="load('retrieve');">Check Code</a></li>
-            <li><a>Hello, <?php echo $_SESSION["id"];?> !</a></li> 
           </ul>
           <ul id="nav-mobile" class="side-nav">
-            <li id="user_sidenav" ><img class="circle_side" src="images/user.png"><p id="sidenav_a">Wessolly Mobile Marketing</p></li>
+            <li id="user_sidenav" ><img class="circle_side" src="images/user.png"><p id="sidenav_a"><?php $_SESSION["name"]; ?></p></li>
             <li><a onclick="load('home');">Contags</a></li>
             <li><a onclick="load('select');">Setup</a></li>
             <li><a onclick="load('retrieve');">Check Code</a></li>
