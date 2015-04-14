@@ -59,10 +59,51 @@ function load(page) {
 	});
 }
 
-// Copy to clipboard
-function copy(id) {
+// Load form
+function load_form(id,locale) {
 
-	alert("Copy function: "+id);
+        $.ajax({
+                url: "./php/forms.php?locale="+locale,
+                success: function(form_html){
+                       	$("#"+id).html(form_html);
+            	},
+            	error: function() { alert("Fehler"); }
+        });
+
+}
+
+// Update form
+function update_form(language,country,form) {
+
+        language = $("#"+language).val();
+        country = $("#"+country).val();
+        if (!language || !country) return;
+        load_form(form,language+"_"+country);
+}
+
+// Clear form
+function clear_form(form) {
+
+	$("#"+form)[0].reset();
+	$("#"+form+" input").each(function() {
+		// Materialize lable bug workaround
+		$(this).focus();
+		$(this).blur();
+	});
+}
+
+// Init triggers for copy buttons
+function copy_init() {
+
+	$(".copy").each(function() {
+
+		var client = new ZeroClipboard(this);
+		client.on("ready", function(readyEvent) {
+  			client.on("aftercopy", function(event) {
+    				alert("Copied Contag to clipboard: " + event.data["text/plain"]);
+  			});
+		});
+	});
 }
 
 // Get embed code
@@ -83,18 +124,18 @@ function edit_list(hash) {
                 	}
 
 			// Make labels behave like any sane label would
-			$("label").each( function() { $(this).addClass("active");});
+			$("#edit_form label").each( function() { $(this).addClass("active");});
 
 			$('#modal_edit').openModal();
-            },
-            error: function() { alert("Fehler"); }
+            	},
+            	error: function() { alert("Fehler"); }
         });
 }
 
 // Retrieve shoptag
 function request(id) {
             $.ajax({
-                url: "./php/handle.php?id="+id,
+                url: "./php/handle.php?hash="+id,
                 success: function(result){
                         var data = JSON.parse(result) || jQuery.parseJSON(result)
                         $("#results").empty();
@@ -141,14 +182,18 @@ $("#shoptag_admin").on("click",function() {
 });
 
 // Shoptag: Save
-$("#save_form").submit(function() {
+$("#address_form").submit(function() {
+
     $.ajax({
            type: "POST",
            url: "php/save.php",
-           data: $("#save_form").serialize(),
+           data: $("#address_form").serialize(),
            success: function(data)
            {
-                if (data == 0) {  $('#modal_success').openModal(); }
+                if (data != 0) {  
+			$('#modal_success').openModal(); 
+			clear_form("address_form");
+ 	   }
                 else {  $('#modal_error').openModal(); }
            },
 	   error: function() { alert("Fehler"); }

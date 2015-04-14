@@ -8,8 +8,10 @@
   <!-- CSS  -->
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-   <link href="css/changes.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  
+  <link href="css/changes.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+  <!-- JS -->
+  <script src="js/ZeroClipboard/ZeroClipboard.js"></script>  
 </head>
 
 <!-- Check for requests from embedded contags -->
@@ -86,16 +88,6 @@
   <?php } ?> 
  <!-- ############################################################# -->
 
-
-
-
-
-
-
-
-
-
-
  <!-- Page content -->
  <div class="section no-pad-bot" id="index-banner">
     <div class="container">
@@ -136,7 +128,6 @@
 <script src="js/jquery.js"></script>
 <script src="js/materialize.js"></script>
 <script src="js/init.js"></script>
-<script src="js/zeroClipboard.js"></script>
 <script src="js/main.js"></script>
 
 </body>
