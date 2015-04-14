@@ -92,10 +92,18 @@ function clear_form(form) {
 	});
 }
 
-// Copy to clipboard
-function copy(id) {
+// Init triggers for copy buttons
+function copy_init() {
 
-	alert("Copy function: "+id);
+	$(".copy").each(function() {
+
+		var client = new ZeroClipboard(this);
+		client.on("ready", function(readyEvent) {
+  			client.on("aftercopy", function(event) {
+    				alert("Copied Contag to clipboard: " + event.data["text/plain"]);
+  			});
+		});
+	});
 }
 
 // Get embed code
