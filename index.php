@@ -29,7 +29,7 @@
 <div class="row " id="main_nav"  role="navigation">
 
   
-  <div class="col s10 cyan lighten-1">
+  <div class="col s9 m9 l10 cyan lighten-1">
     
    <nav class=" cyan lighten-1">
       <div class="container">
@@ -52,7 +52,7 @@
 
   </div>
   
-  <div class="col s2 cyan teal-1 ">
+  <div class="col s3 m3 l2 cyan lighten-1 ">
 
     <div class="container">
 
