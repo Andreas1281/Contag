@@ -119,10 +119,10 @@ td.select, th {
 
 
     .container {
-  padding: 0 1.5rem;
+  padding:0;
   margin: 0 auto;
-  max-width: 1280px;
-  width: 90%; }
+  max-width: 1200px;
+  width: 100% !important; }
  
  
 .container_modal {
@@ -171,7 +171,7 @@ padding: 0 1.5rem;
 
 @media only screen and (min-width : 993px) {
   .container {
-    width: 77%; }
+    width: 100%; }
 
   }
 
@@ -1202,6 +1202,11 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
 
   .select-wrapper input.select-dropdown {
   width: 95%;
+  }
+
+
+  #navitest{
+    background:#369;
   }
 
 
