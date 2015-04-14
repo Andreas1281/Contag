@@ -1258,6 +1258,13 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
 
 }
 
+@media only screen and (min-width: 601px) {
+.container {
+  width: 90%;
+}
+
+}
+
 
   
 
