@@ -453,7 +453,7 @@ h6 {
   background-color: #fff;
 
   max-height: 85%;
-  width: 69%;
+  width: 88%;
   top: 16% !important;
    }
 
@@ -1038,7 +1038,7 @@ text-align: left;
  
 #userpic{
   float: left;
-  width: 55px;
+
  
 }
  
@@ -1267,6 +1267,8 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
 
 
   
+
+  image-rendering: -moz-crisp-edges;
 
 
 
