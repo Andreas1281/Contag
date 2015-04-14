@@ -65,9 +65,9 @@
 
             <img class="circle"   id="userpic" src="images/user.png"><h6 id="username">Wessolly Mobile Marketing</h6>
               <ul class="dropdown">
-                <li><a href="#"><i class="icon-user"></i>Profile</a></li>
-                <li><a href="#"><i class="icon-cog"></i>Settings</a></li>
-                <li><a href="#"><i class="icon-remove"></i>Log out</a></li>
+                <li><a onclick="load('profile');"><i class="icon-user"></i>Profile</a></li>
+                <li><a onclick="load('settings');"><i class="icon-cog"></i>Settings</a></li>
+                <li><a onclick="logout();"><i class="icon-remove"></i>Log out</a></li>
               </ul>
             </div>
     <!-- User Dropdown -->  
@@ -92,8 +92,6 @@
           <li><a class="modal-trigger" href="#modal_register">Register</a></li>
           <li><a class="modal-trigger" href="#modal_register">Login</a></li>
           <li><a onclick="load('about');">About</a></li>
-          <li><a onclick="load('news');">News</a></li>
-          <li><a onclick="load('retrieve');">Check Code</a></li>
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
