@@ -41,10 +41,12 @@
             <li><a>Hello, <?php echo $_SESSION["id"];?> !</a></li> 
           </ul>
           <ul id="nav-mobile" class="side-nav">
+            <li id="user_sidenav" ><img class="circle_side" src="images/user.png"><p id="sidenav_a">Wessolly Mobile Marketing</p></li>
             <li><a onclick="load('home');">Contags</a></li>
             <li><a onclick="load('select');">Setup</a></li>
             <li><a onclick="load('retrieve');">Check Code</a></li>
           </ul>
+
           <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
         </div>
       </div>
