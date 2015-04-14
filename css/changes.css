@@ -105,6 +105,8 @@ td.select, th {
   text-align: left !important;
   padding-left: 1.5rem;
   font-size: 1.2rem;
+  width: 60%;
+  font-weight: 300;
  }
  
 
@@ -299,6 +301,7 @@ padding: 0 1.5rem;
  h5 {
   font-size: 1.64rem;
   line-height: 1.804rem;
+  font-weight: 300;
   margin: 2rem 0rem 2rem 1.25rem;}
  
  
@@ -387,8 +390,8 @@ h6 {
     .btn, .btn-large, .btn-flat {
    display: inline-block;
   height: 36px;
-  margin-bottom: 12px;
-  margin-top: 12px;
+  margin-bottom: 8px;
+  margin-top: 8px;
   padding: 0 1rem;
  
   margin-right: 10px;
@@ -469,7 +472,7 @@ h6 {
  
 #username{
  
-color: #ffffff !important;
+color: #888 !important;
 text-align: left;
  }
  
@@ -1037,7 +1040,7 @@ text-align: left;
   width: 240px;
   margin: 0 auto;
   padding: 10px 30px 15px 10px;
-  background: #C6D2DC;
+
  
     /* Styles */
  
@@ -1062,7 +1065,7 @@ text-align: left;
     margin-top: -3px;
     border-width: 6px 6px 0 6px;
     border-style: solid;
-    border-color: #ffffff transparent;
+    border-color: #888888 transparent;
 }
  
 .wrapper-dropdown-5 .dropdown {
@@ -1078,6 +1081,7 @@ text-align: left;
     border: 1px solid rgba(0,0,0,0.2);
     border-top: none;
     border-bottom: none;
+    z-index: 3;
     list-style: none;
     -webkit-transition: all 0.3s ease-out;
     -moz-transition: all 0.3s ease-out;
@@ -1194,6 +1198,12 @@ btn, .btn-large {
 input[type=text], input[type=password], input[type=email], input[type=url], input[type=date], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
   width: 95%;
   }
+
+
+  .select-wrapper input.select-dropdown {
+  width: 95%;
+  }
+
 
 
   
