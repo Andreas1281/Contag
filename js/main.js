@@ -123,6 +123,7 @@ function copy_init() {
 function embed(id) {
 	$("#modal_embed").openModal();
 	$("#embed_code").val("<iframe src=\"http://contag.de/?id=" + id + "\"></iframe>");
+	$("#copy_embed").attr("data-clipboard-text",$("#embed_code").val());
 }
 
 
@@ -188,7 +189,7 @@ $("#shoptag_admin").on("click",function() {
 
 	$.ajax({url: "./php/list.php", 
                 success: function(response){
-                  $("#test2").html(response);
+                  $("#shoptag_tab_admin").html(response);
             },
             error: function() { alert("Fehler"); }
         });

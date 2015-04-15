@@ -166,7 +166,12 @@
   </div>
   <div class="modal-footer">
     <a href="#!" class="btn-large modal-action modal-close center-align grey waves-light">Close</a>
-    <a href="#!" id="copy_embed" class="btn-large modal-action modal-close center-align waves-light">Copy</a>
+    <button id="copy_embed" data-clipboard-text=''
+               title='Copy embed code'
+               class='copy btn-large modal-action modal-close center-align waves-light'>Copy</button>
+
+    <script>
+    		copy_init();</script>
   </div>
 </div>
 
