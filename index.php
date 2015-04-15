@@ -83,23 +83,28 @@
   <!-- LOGGED OUT ################################################-->
   <?php } else {?>
 
- <!-- Main bar -->
-  <nav id="main_nav" class="cyan lighten-1" role="navigation">
-    <div class="container">
-      <div class="nav-wrapper">
-        <ul class="right">
-          <li><a class="modal-trigger" href="#modal_register">Register</a></li>
-          <li><a class="modal-trigger" href="#modal_register">Login</a></li>
-          <li><a onclick="load('about');">About</a></li>
-        </ul>
+  <div class="col s9 m9 l10 cyan lighten-1">
 
-        <ul id="nav-mobile" class="side-nav">
-          <li><a href="#">Navbar Link</a></li>
-        </ul>
-        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+   <!-- Main bar -->
+   <nav class=" cyan lighten-1">
+      <div class="container">
+        <div class="nav-wrapper"><a id="logo-container" onclick="load('index');" class="brand-logo">SHOPTAG</a>
+          <ul class="right" id="nav_top_right">
+            <li><a class="modal-trigger" href="#modal_register">Register</a></li>
+            <li><a class="modal-trigger" href="#modal_register">Login</a></li>
+	    <li><a onclick="load('about');">About</a></li>
+	  </ul>
+          <ul id="nav-mobile" class="side-nav">
+           <li><a class="modal-trigger" href="#modal_register">Register</a></li>
+           <li><a class="modal-trigger" href="#modal_register">Login</a></li> 
+	  </ul>
+
+          <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+        </div>
       </div>
-    </div>
-  </nav>
+   </nav>
+
+  </div>
 
   <?php } ?> 
  <!-- ############################################################# -->
