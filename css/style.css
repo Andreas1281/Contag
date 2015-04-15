@@ -15,7 +15,7 @@ a:hover {
   cursor: hand;
 }
 
-.hidden { visibility:hidden; }
+.hidden { display: none; visibility: hidden; }
 
 body.home {
   /* Location of the image */
