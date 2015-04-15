@@ -24,23 +24,24 @@
 			</div>
 
 			<div class="col s12 m6 l6 ">
-				<select id="select_country" class="browser-default" 
+				<select id="select_country" class="hidden browser-default" 
 				        onchange="update_form('select_language','select_country','address_form');">
 
-					<option value="" disabled selected>Choose your country:</option>
 				</select>
 
 				<!-- SELECT_COUNTRY TEMPLATES ------------------>
 
 				<!--   * GERMAN SPEAKING COUNTRIES -->
 				<div id="select_country_de" class="hidden">
+					<option value="" disabled selected>Choose your country</option>
                                         <option value="de">Germany</option>
                                         <option value="a">Austria</option>
                                         <option value="ch">Switzerland</option>
                                 </div>
 
 				<!--   * ENGLISH SPEAKING COUNTRIES -->
-				<div id="select_country_en" class="hidden"> 
+				<div id="select_country_en" class="hidden">
+					<option value="" disabled selected>Choose your country</option> 
                                         <option value="uk">United Kingdom</option>
                                         <option value="us">United States</option>
                                 </div>

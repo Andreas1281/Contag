@@ -84,14 +84,14 @@ function update_form(language,country,form) {
 // Update select country
 function update_country_select(language,country,form) {
 
-	$("#"+country).show();
+	$("#"+country).removeClass("hidden");
 	language = $("#"+language).val();
 	country_options = $("#"+country+"_"+language).html();
 	$("#"+country).html(country_options);
 
 	// Load default country form
-	country_default = $("#"+country+"_"+language).children().eq(0).val();
-	load_form(form,language+"_"+country_default);
+	//country_default = $("#"+country+"_"+language).children().eq(1).val();
+	//load_form(form,language+"_"+country_default);
 }
 
 // Clear form
