@@ -126,12 +126,10 @@
       <div class="container">
 	
 	<!-- DEBUG BUTTON -->
-	<?php if (isset($_SESSION["id"])) {?>
-	<a onclick="logout();" style="color: yellow;">DEBUG: Logout</a> <?php } else {?>
-      	<a onclick="login();" style="color: yellow;">DEBUG: Login</a> <?php }?>
+	<?php if (!isset($_SESSION["id"])) {?>
+      	<a onclick="login();" style="color: yellow;">DEBUG: Login</a> &nbsp; | &nbsp; <?php }?>
 
 	<!-- Copyright -->
-	&nbsp; | &nbsp; 
 	Contag &copy; 2015 by <a class="white-text text-lighten-3 right-align" href="http://www.wessolly-mobile.de">WMM</a>   
 	&nbsp; | &nbsp; 
 	<a href="imprint.html">Imprint</a>
