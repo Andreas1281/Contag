@@ -2,7 +2,7 @@
 <?php require_once("db.lib.php"); ?>
 
 <!-- Shoptag erstellen -->
-<h5 id="h5_home">Shoptag admin</h5>
+<h5 id="h5_home">Shoptag Admin</h5>
 <br>
 
 <table class="striped bordered">
