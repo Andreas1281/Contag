@@ -113,7 +113,7 @@ function copy_init() {
 		var client = new ZeroClipboard(this);
 		client.on("ready", function(readyEvent) {
   			client.on("aftercopy", function(event) {
-    				alert("Copied Contag to clipboard: " + event.data["text/plain"]);
+    				alert("Copied to clipboard: \"" + event.data["text/plain"] + "\".");
   			});
 		});
 	});
