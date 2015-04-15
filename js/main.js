@@ -81,6 +81,19 @@ function update_form(language,country,form) {
         load_form(form,language+"_"+country);
 }
 
+// Update select country
+function update_country_select(language,country,form) {
+
+	$("#"+country).show();
+	language = $("#"+language).val();
+	country_options = $("#"+country+"_"+language).html();
+	$("#"+country).html(country_options);
+
+	// Load default country form
+	country_default = $("#"+country+"_"+language).children().eq(0).val();
+	load_form(form,language+"_"+country_default);
+}
+
 // Clear form
 function clear_form(form) {
 
