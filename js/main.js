@@ -81,6 +81,19 @@ function update_form(language,country,form) {
         load_form(form,language+"_"+country);
 }
 
+// Update select country
+function update_country_select(language,country,form) {
+
+	$("#"+country).removeClass("hidden");
+	language = $("#"+language).val();
+	country_options = $("#"+country+"_"+language).html();
+	$("#"+country).html(country_options);
+
+	// Load default country form
+	//country_default = $("#"+country+"_"+language).children().eq(1).val();
+	//load_form(form,language+"_"+country_default);
+}
+
 // Clear form
 function clear_form(form) {
 
@@ -100,7 +113,7 @@ function copy_init() {
 		var client = new ZeroClipboard(this);
 		client.on("ready", function(readyEvent) {
   			client.on("aftercopy", function(event) {
-    				alert("Copied Contag to clipboard: " + event.data["text/plain"]);
+    				alert("Copied to clipboard: \"" + event.data["text/plain"] + "\".");
   			});
 		});
 	});
@@ -110,6 +123,7 @@ function copy_init() {
 function embed(id) {
 	$("#modal_embed").openModal();
 	$("#embed_code").val("<iframe src=\"http://contag.de/?id=" + id + "\"></iframe>");
+	$("#copy_embed").attr("data-clipboard-text",$("#embed_code").val());
 }
 
 
@@ -175,7 +189,7 @@ $("#shoptag_admin").on("click",function() {
 
 	$.ajax({url: "./php/list.php", 
                 success: function(response){
-                  $("#test2").html(response);
+                  $("#shoptag_tab_admin").html(response);
             },
             error: function() { alert("Fehler"); }
         });

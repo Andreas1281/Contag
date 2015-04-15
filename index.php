@@ -10,7 +10,6 @@
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/changes.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   
-
   <!-- JS -->
   <script src="js/ZeroClipboard/ZeroClipboard.js"></script>  
 </head>
@@ -29,7 +28,6 @@
 
 <!-- Main bar -->
 <div class="row " id="main_nav"  role="navigation">
-
 
   <div class="col s9 m9 l10 cyan lighten-1">
     
@@ -64,13 +62,13 @@
           <!-- User Dropdown -->       
             <div id="dd" class="wrapper-dropdown-5" tabindex="1">
 
-            <img class="circle"   id="userpic" src="images/user.png"><h6 id="username">Wessolly Mobile Marketing</h6>
-              <ul class="dropdown">
+            <img class="circle" id="userpic" src="images/user.png"><h6 id="username">Wessolly Mobile Marketing</h6>
+            <ul class="dropdown">
                 <li><a onclick="load('profile');"><i class="icon-user"></i>Profile</a></li>
                 <li><a onclick="load('settings');"><i class="icon-cog"></i>Settings</a></li>
                 <li><a onclick="logout();"><i class="icon-remove"></i>Log out</a></li>
-              </ul>
-            </div>
+            </ul>
+        </div>
     <!-- User Dropdown -->  
       </div>
     </div>
@@ -128,15 +126,13 @@
       <div class="container">
 	
 	<!-- DEBUG BUTTON -->
-	<?php if (isset($_SESSION["id"])) {?>
-	<a onclick="logout();" style="color: yellow;">DEBUG: Logout</a> <?php } else {?>
-      	<a onclick="login();" style="color: yellow;">DEBUG: Login</a> <?php }?>
+	<?php if (!isset($_SESSION["id"])) {?>
+      	<a onclick="login();" style="color: yellow;">DEBUG: Login</a> &nbsp; | &nbsp; <?php }?>
 
 	<!-- Copyright -->
-	&nbsp; | &nbsp; 
 	Contag &copy; 2015 by <a class="white-text text-lighten-3 right-align" href="http://www.wessolly-mobile.de">WMM</a>   
 	&nbsp; | &nbsp; 
-	<a href="imprint.html">Imprint</a>
+	<a onclick="load('imprint');">Imprint</a>
 
       </div>
     </div>

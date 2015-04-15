@@ -1,54 +1,75 @@
 <div class="row">
 	<div class="col s12">
 		<ul class="tabs">
-			<li class="tab col s3"><a class="active" href="#test1"> Create Shoptag</a></li>
-			<li class="tab col s3"><a href="#test2" id="shoptag_admin">Shoptag Admin</a></li>
+			<li class="tab col s3"><a href="#shoptag_tab_create" class="active"> Create Shoptag</a></li>
+			<li class="tab col s3"><a href="#shoptag_tab_admin" id="shoptag_admin">Shoptag Admin</a></li>
 		</ul>
 	</div>
 
 	<!-- SHOPTAG: CREATE -->
-	<div id="test1" class="col s12 m12 l12">
+	<div id="shoptag_tab_create" class="col s12 m12 l12">
 
-		<h5>1. Choose Language and Country</h5>
+		<h5>Create Contag</h5>
+		<br>
+		<h5 style="font-size:1.4rem;">1. Choose Language and Country</h5>
 
 		<div class="row">
+
 			<div class="col s12 m6 l6 ">
-				<select id="select_language" onchange="update_form('select_language','select_country','address_form');">
+		
+				<!-- SELECT LANGUAGE -->
+				<select id="select_language" class="browser-default"
+			         onchange="update_country_select('select_language','select_country','address_form');">
+
 					<option value="" disabled selected>Choose your language</option>
-					<option value="de">Deutsch</option>                  
+					<option value="de">German</option>
+					<option value="en">English</option>
 				</select>
 			</div>
 
 			<div class="col s12 m6 l6 ">
-				<select id="select_country" onchange="update_form('select_language','select_country','address_form');">
-					<option value="" disabled selected>Choose your country:</option>
-					<option value="de">Germany</option>
-					<option value="a">Austria</option>
-					<option value="ch">Switzerland</option>
-				    <option value="ch">United Kingdom</option>
-					<option value="ch">United States</option>
 
-
+				<!-- SELECT COUNTRY -->
+				<select id="select_country" class="hidden browser-default" 
+				 onchange="update_form('select_language','select_country','address_form');">
 				</select>
-                                                         
+
+				<!-- ======= SELECT COUNTRY: TEMPLATES ======= -->
+				<div id="select_country_templates" class="hidden">
+			
+					<!--    * GERMAN SPEAKING COUNTRIES -->
+					<div id="select_country_de">
+						<option value="" disabled selected>Choose your country</option>
+                                        	<option value="de">Germany</option>
+                                        	<option value="a">Austria</option>
+                                       		<option value="ch">Switzerland</option>
+                                	</div>
+
+					<!--    * ENGLISH SPEAKING COUNTRIES -->
+					<div id="select_country_en">
+						<option value="" disabled selected>Choose your country</option> 
+                                        	<option value="uk">United Kingdom</option>
+                                        	<option value="us">United States</option>
+                                	</div>
+
+				</div>	
+				<!-- ======================================== -->
+
 			</div>
 		</div>
 
-<br>
-                                          
-        	<h5>2. Create Contag</h5>
+		<!-- I'm so sorry... -->
+        	<h5 style="font-size:1.4rem;">2. Fill out the information you want to save</h5>
         	<div class="row">
 
-			<!-- LOAD DEFAULT FORM ON INIT -->
-			<script>$(document).ready(function() { load_form("address_form",'de_de'); });</script>
+			<!-- ADDRESS FORM -->
         		<form class="col s12" id="address_form" method="POST">
+				<p>Please select language and country first.</p>
 			</form>
         	</div>
 	</div>
 
 	<!-- SHOPTAG: ADMIN -->
-	<div id="test2" class="col s12">
-		<h5 id="h5_home">Shoptag admin</h5>
-		<div class="row"></div>
+	<div id="shoptag_tab_admin" class="col s12">
 	</div>
 </div>
