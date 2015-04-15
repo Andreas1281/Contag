@@ -1318,5 +1318,227 @@ ul.side-nav li {
 }
 
 
+
+.teal.lighten-1 {
+  background-color: #2790B0 !important; }
+
+
+
+
+
+  .teal-text.text-lighten-1 {
+  color: #2790B0 !important; }
+
+
+   .collection .collection-item.active {
+      background-color: #2790B0;
+      color: #eafaf9; }
+
+
+       .collection a.collection-item {
+   
+    color: #2790B0; }
+
+
+    .secondary-content {
+  float: right;
+  color: #2790B0; }
+
+
+
+   span.badge.new {
+
+    background-color: #2790B0;
+   }
+ 
+
+
+
+
+    .progress .determinate {
+
+    background-color: #2790B0;
+ }
+
+
+
+
+      .progress .indeterminate {
+    background-color: #2790B0; }
+
+
+
+
+
+
+
+.btn, .btn-large {
+ 
+  background-color: #2790B0;
+ }
+
+
+
+
+
+
+
+  .btn-floating {
+
+  background-color: #2790B0;
+ }
+
+
+
+   .dropdown-content li > a, .dropdown-content li > span {
+     
+      color: #2790B0; }
+
+
+
+
+      .input-field input[type=text]:focus + label, .input-field input[type=password]:focus + label, .input-field input[type=email]:focus + label, .input-field input[type=url]:focus + label, .input-field input[type=date]:focus + label, .input-field input[type=tel]:focus + label, .input-field input[type=number]:focus + label, .input-field input[type=search]:focus + label, .input-field textarea:focus.materialize-textarea + label {
+    color: #2790B0; }
+
+
+
+     .input-field .prefix.active {
+      color: #2790B0; }
+
+
+
+
+
+      input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, input[type=url]:focus, input[type=date]:focus, input[type=tel]:focus, input[type=number]:focus, input[type=search]:focus, textarea:focus.materialize-textarea {
+  border-bottom: 1px solid #2790B0;
+  -webkit-box-shadow: 0 1px 0 0 #2790B0;
+  -moz-box-shadow: 0 1px 0 0 #2790B0;
+  box-shadow: 0 1px 0 0 #2790B0; }
+
+
+  [type="radio"]:checked + label:after {
+ 
+  border: 2px solid #2790B0;
+  background-color: #2790B0;
+ }
+
+
+
+
+  /* Radio With gap */
+[type="radio"].with-gap:checked + label:before {
+
+  border: 2px solid #2790B0; }
+
+
+
+  [type="radio"].with-gap:checked + label:after {
+
+  border: 2px solid #2790B0;
+  background-color: #2790B0;
+ }
+
+
+
+
+  /* Checked styles */
+[type="checkbox"]:checked + label:before {
+
+  border-right: 2px solid #2790B0;
+  border-bottom: 2px solid #2790B0;
+ }
+
+
+  .switch label input[type=checkbox]:checked + .lever:after {
+  background-color: #2790B0; }
+
+
+
+
+
+
+  input[type=range] + .thumb {
+
+  background-color: #2790B0;
+ }
+
+
+
+
+   input[type=range] + .thumb .value {
+  
+    color: #2790B0;
+ }
+
+
+
+
+    input[type=range]::-webkit-slider-thumb {
+
+  background-color: #2790B0;
+; }
+
+
+
+
+  input[type=range]::-moz-range-thumb {
+
+  background: #2790B0;
+ }
+
+
+
+  input[type=range]::-ms-thumb {
+
+  background: #2790B0; }
+
+
+  .picker__date-display {
+
+  background-color: #2790B0;
+ }
+
+
+  .picker__day.picker__day--today {
+  color: #2790B0; }
+
+
+  .picker__day--selected, .picker__day--selected:hover, .picker--focused .picker__day--selected {
+
+  background-color: #2790B0;
+  }
+
+
+  .picker__close, .picker__today {
+
+  color: #2790B0; }
+
+  .switch label input[type=checkbox]:checked + .lever {
+  background-color: #2790B0 !important;
+}
+
+.switch label input[type=checkbox]:checked + .lever {
+  background-color: #2790B0 !important; }
+
+
+  ul.side-nav li:hover, ul.side-nav li.active {
+  background-color: #2790B0;
+  color: #ffffff;
+  /* color: #fff; */
+}
+
+  ul.side-nav a:hover, ul.side-nav a.active {
+  color: #ffffff !important;
+  
+}
+
+  ul.side-nav li:hover, li.side-nav a.active {
+  color: #ffffff !important;
+  
+}
+
+
+
+
   
 
