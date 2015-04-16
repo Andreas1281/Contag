@@ -55,11 +55,10 @@ i.large {
 
 
 footer.page-footer {
-  margin-top: 20px;
-  padding-top: 30px;
+
   bottom: 0;
   position: fixed;
-  padding-bottom: 25px;
+ 
   width: 100%;
   background-color: #ffffff;
   border-top: 1px solid #e2e2e2;
@@ -402,7 +401,7 @@ h6 {
  
 
  #inner_nav{
-  margin-top: -5rem;
+  margin-top: -5.2rem;
  }
 
  #second_nav{
@@ -1116,7 +1115,7 @@ text-align: left;
 .wrapper-dropdown-5 {
     /* Size & position */
   position: relative;
-  width: 240px;
+  width: 220px;
   margin: 0 auto;
   padding: 7px 30px 15px 10px;
  
@@ -1308,11 +1307,13 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
 .row .col.l10 {
   width: 76.33333%;
   margin-left: 0;
+  height: 78px;
 }
 
   .row .col.l2 {
-  width: 23.66667%;
+  width: 23.67%;
   margin-left: 0;
+  height: 78px;
 }
 
 }
