@@ -31,7 +31,7 @@
 
 
   .orange {
-  background-color: #4E4D4A !important; }
+  background-color: #ffffff !important; }
 
   body {
   margin: 0; 
@@ -56,18 +56,55 @@ i.large {
 
 footer.page-footer {
   margin-top: 20px;
-  padding-top: 20px;
+  padding-top: 30px;
   bottom: 0;
   position: fixed;
+  padding-bottom: 25px;
   width: 100%;
-  background-color: #4E4D4A;}
+  background-color: #ffffff;
+  border-top: 1px solid #e2e2e2;
+
+}
+
+
+footer.page-footer .footer-copyright{
+
+  background-color: #ffffff;
+}
+
+
+
+
  
   footer.page-footer .footer-copyright {
       overflow: hidden;
   height: 35px;
   line-height: 20px;
-  color: rgba(255, 255, 255, 0.8);
+  color: #a4a8b3;
+
+
     }
+
+footer.page-footer{
+  color: #a4a8b3;
+}
+
+
+    .footer-copyright .container a{
+color: #a4a8b3;
+    }
+
+
+    .white-text {
+color: #a4a8b3 !important;
+    }
+
+
+  footer a {
+  color: #a4a8b3;
+
+
+}  
  
 table, th, td {
   border: none; }
@@ -320,7 +357,7 @@ padding: 0 1.5rem;
   font-size: 1.64rem;
   line-height: 1.804rem;
   font-weight: 300;
-  margin: 2rem 0rem 1.25rem 1.25rem;}
+  margin: 2rem 0rem 1.25rem 0rem;}
  
  
 #h5_home{
@@ -1594,6 +1631,18 @@ nav a.button-collapse i {
 
 
   margin-top: 0px;
+}
+
+
+.z-depth-1, nav, .card-panel, .card, .toast, .btn, .btn-large, .btn-floating, .dropdown-content, .collapsible, ul.side-nav {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none ;
+  box-shadow:  none;
+
+  }
+
+html {
+  color: #44424b;
 }
 
 

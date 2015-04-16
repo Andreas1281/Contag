@@ -132,7 +132,7 @@
 	
 	<!-- DEBUG BUTTON -->
 	<?php if (!isset($_SESSION["id"])) {?>
-      	<a onclick="login();" style="color: yellow;">DEBUG: Login</a> &nbsp; | &nbsp; <?php }?>
+      	<a onclick="login();" style="color: #a4a8b3;">DEBUG: Login</a> &nbsp; | &nbsp; <?php }?>
 
 	<!-- Copyright -->
 	Contag &copy; 2015 by <a class="white-text text-lighten-3 right-align" href="http://www.wessolly-mobile.de">WMM</a>   
