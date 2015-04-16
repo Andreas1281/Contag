@@ -26,55 +26,73 @@
 		// Set session Name for testing
         	if (!$_SESSION["name"]) { $_SESSION["name"] = "Wessolly Mobile Marketing"; } ?>
 
-<!-- Main bar -->
-<div class="row " id="main_nav"  role="navigation">
+  <nav class=" cyan lighten-1"></nav>
 
-  <div class="col s9 m9 l10 cyan lighten-1">
-    
-   <nav class=" cyan lighten-1">
-      <div class="container">
-        <div class="nav-wrapper"><a id="logo-container" onclick="load('index');" class="brand-logo">SHOPTAG</a>
-          <ul class="right" id="nav_top_right">
-            <li><a onclick="load('home');">Contags</a></li>
-            <li><a onclick="load('select');">Setup</a></li>
-            <li><a onclick="load('retrieve');">Check Code</a></li>
-          </ul>
-          <ul id="nav-mobile" class="side-nav">
-            <li id="user_sidenav" ><img class="circle_side" src="images/user.png"><p id="sidenav_a"><?php $_SESSION["name"]; ?></p></li>
-            <li><a onclick="load('home');">Contags</a></li>
-            <li><a onclick="load('select');">Setup</a></li>
-            <li><a onclick="load('retrieve');">Check Code</a></li>
-          </ul>
+  <div class="container" id="inner_nav">
 
-          <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+  <!-- Main bar -->
+    <div class="row " id="main_nav"  role="navigation">
+
+        <div class="col s9 m9 l10 cyan lighten-1">
+          
+         <nav class=" cyan lighten-1">
+            <div class="container">
+              <div class="nav-wrapper"><a id="logo-container" onclick="load('index');" class="brand-logo">SHOPTAG</a>
+               
+                <ul id="nav-mobile" class="side-nav">
+                  <li id="user_sidenav" ><img class="circle_side" src="images/user.png"><p id="sidenav_a"><?php $_SESSION["name"]; ?></p></li>
+                  <li><a onclick="load('home');">Contags</a></li>
+                  <li><a onclick="load('select');">Setup</a></li>
+                  <li><a onclick="load('retrieve');">Check Code</a></li>
+                </ul>
+
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+              </div>
+            </div>
+         </nav>
+
         </div>
-      </div>
-   </nav>
+        
+        <div class="col s3 m3 l2 cyan lighten-1 ">
 
-  </div>
-  
-  <div class="col s3 m3 l2 cyan lighten-1 ">
+          <div class="container">
 
-    <div class="container">
+              <div class="nav-wrapper right_user">
 
-        <div class="nav-wrapper right_user">
+                <!-- User Dropdown -->       
+                  <div id="dd" class="wrapper-dropdown-5" tabindex="1">
 
-          <!-- User Dropdown -->       
-            <div id="dd" class="wrapper-dropdown-5" tabindex="1">
-
-            <img class="circle" id="userpic" src="images/user.png"><h6 id="username">Wessolly Mobile Marketing</h6>
-            <ul class="dropdown">
-                <li><a onclick="load('profile');"><i class="icon-user"></i>Profile</a></li>
-                <li><a onclick="load('settings');"><i class="icon-cog"></i>Settings</a></li>
-                <li><a onclick="logout();"><i class="icon-remove"></i>Log out</a></li>
-            </ul>
+                  <img class="circle" id="userpic" src="images/user.png"><h6 id="username">Wessolly Mobile Marketing</h6>
+                  <ul class="dropdown">
+                      <li><a onclick="load('profile');"><i class="icon-user"></i>Profile</a></li>
+                      <li><a onclick="load('settings');"><i class="icon-cog"></i>Settings</a></li>
+                      <li><a onclick="logout();"><i class="icon-remove"></i>Log out</a></li>
+                  </ul>
+              </div>
+          <!-- User Dropdown -->  
+            </div>
+          </div>
         </div>
-    <!-- User Dropdown -->  
-      </div>
+
     </div>
-
   </div>
 
+    <div class="container" id="inner_nav">
+
+  <!-- Second Bar -->
+    <div class="row " id="second_nav"  role="navigation">
+
+        <div class="col s9 m9 l12 cyan lighten-1" id="second_nav">
+       <ul>
+                  <li><a onclick="load('home');">Contags</a></li>
+                  <li><a onclick="load('select');">Setup</a></li>
+                  <li><a onclick="load('retrieve');">Check Code</a></li>
+                </ul>
+        </div>
+       
+
+    </div>
+  </div>
 </div>
  
   

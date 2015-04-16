@@ -227,7 +227,7 @@ padding: 0 1.5rem;
  
  
 .section {
-  padding-top: 5rem;
+  padding-top: 0.1rem;
   padding-bottom: 8rem !important;
  
 }
@@ -294,7 +294,7 @@ padding: 0 1.5rem;
     font-weight: 300;
     display: inline-block;
     font-size: 2.1rem;
-    margin-left: 0.5rem;
+    margin-left: 0rem;
       
     padding: 0; }
 
@@ -401,10 +401,34 @@ h6 {
   }
  
 
+ #inner_nav{
+  margin-top: -5rem;
+ }
+
+ #second_nav{
+
+  background-color: #fff !important;
+
+  color: #e2e2e2;
+
+ }
+
+
+ #second_nav ul li a{
+
+  color: #a4a8b3;
+ }
+
+  #second_nav ul li {
+
+ display: inline-block;
+ padding: 15px 0px 15px 30px;
+ }
+
 
  .card-panel {
   padding: 3rem;
-  margin: 2rem 0 1rem 0;
+  margin: 0rem 0 1rem 0;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
@@ -1642,7 +1666,7 @@ nav a.button-collapse i {
   }
 
 html {
-  color: #44424b;
+  color: #44424b; 
 }
 
 
