@@ -39,6 +39,10 @@
  
 }
 
+p{
+  text-align: justify;
+}
+
  
  hr {
   -moz-box-sizing: content-box;
@@ -152,7 +156,7 @@ td.select, th {
       margin-right: -0.25rem !important; }
 .right_user {
   float: right !important;
-    margin-right: 0.7rem !important; }
+    }
 
 
     .container {
@@ -247,8 +251,8 @@ padding: 0 1.5rem;
  }
 
   .row .col.s6 {
-     width: 48%;
-  margin-right: 10px; }
+     width: 50%;
+  }
 
 
   nav {
@@ -415,7 +419,7 @@ h6 {
 
  #second_nav ul li a{
 
-  color: #a4a8b3;
+  color: #66757F;
  }
 
   #second_nav ul li {
@@ -1175,7 +1179,7 @@ text-align: left;
 .wrapper-dropdown-5 .dropdown li a {
     display: block;
     text-decoration: none;
-    color: #333;
+    color: #66757F;
     padding: 10px 0;
     transition: all 0.3s ease-out;
     border-bottom: 1px solid #e6e8ea;
@@ -1201,10 +1205,11 @@ text-align: left;
  
 .wrapper-dropdown-5.active {
     border-radius: 5px 5px 0 0;
-    background: #4cbeff;
+    background: #eef2f3;
     box-shadow: none;
+    height: 78px;
     border-bottom: none;
-    color: white;
+    color: #66757F;
 }
  
 .wrapper-dropdown-5.active:after {
@@ -1270,7 +1275,7 @@ btn, .btn-large {
 
 
 input[type=text], input[type=password], input[type=email], input[type=url], input[type=date], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
-  width: 95%;
+  width: 100%;
   }
 
 
@@ -1302,7 +1307,6 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
 
 }
 
-
 @media only screen and (min-width: 661px){
 .row .col.l10 {
   width: 76.33333%;
@@ -1320,7 +1324,7 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
 
 @media only screen and (min-width: 601px) {
 .container {
-  width: 90%;
+  width: 100%;
 }
 
 }
@@ -1667,7 +1671,7 @@ nav a.button-collapse i {
   }
 
 html {
-  color: #44424b; 
+  color: #66757F; 
 }
 
 
