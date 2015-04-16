@@ -10,7 +10,7 @@
   color: #93A42A !important; }
 
   .cyan.lighten-1 {
-  background-color: #2790B0 !important; }
+  background-color: #689f38 !important; }
 
 
 .cyan.darken-2 {,
@@ -110,7 +110,7 @@ table, th, td {
   border: none; }
  
 table {
-  width: 97%;
+  width: 100%;
   display: table;
  
  
@@ -219,8 +219,8 @@ padding: 0 1.5rem;
  }
  
 .container .row {
-    margin-left: 0.75rem;
-  margin-right: 0.75rem; }
+    margin-left: 0rem;
+  margin-right: 0rem; }
  
  
  
@@ -354,14 +354,14 @@ padding: 0 1.5rem;
   padding-top: 0px;
   }
  h5 {
-  font-size: 1.64rem;
+  font-size: 1.2rem !important;
   line-height: 1.804rem;
   font-weight: 300;
   margin: 2rem 0rem 1.25rem 0rem;}
  
  
 #h5_home{
-  font-size: 1.64rem;
+  font-size: 1.2rem;
   line-height: 1.804rem;
   margin: 2rem 0rem 2rem 1.3rem;}
  
@@ -427,7 +427,7 @@ h6 {
 
 
  .card-panel {
-  padding: 3rem;
+  padding: 2rem;
   margin: 0rem 0 1rem 0;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;

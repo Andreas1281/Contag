@@ -185,15 +185,15 @@ $("#edit_form").submit(function() {
 });
 
 // Shoptag: Admin
-$("#shoptag_admin").on("click",function() {
+function get_contag_admin() {
 
 	$.ajax({url: "./php/list.php", 
                 success: function(response){
-                  $("#shoptag_tab_admin").html(response);
+                  $("#contag_admin").html(response);
             },
             error: function() { alert("Fehler"); }
-        });
-});
+  });
+}
 
 // Shoptag: Save
 $("#address_form").submit(function() {

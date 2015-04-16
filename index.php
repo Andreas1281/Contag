@@ -37,7 +37,7 @@
           
          <nav class=" cyan lighten-1">
             <div class="container">
-              <div class="nav-wrapper"><a id="logo-container" onclick="load('index');" class="brand-logo">SHOPTAG</a>
+              <div class="nav-wrapper"><a id="logo-container" onclick="load('index');" class="brand-logo">CONTAG</a>
                
                 <ul id="nav-mobile" class="side-nav">
                   <li id="user_sidenav" ><img class="circle_side" src="images/user.png"><p id="sidenav_a"><?php $_SESSION["name"]; ?></p></li>
@@ -84,9 +84,10 @@
 
         <div class="col s9 m9 l12 cyan lighten-1" id="second_nav">
        <ul>
-                  <li><a onclick="load('home');">Contags</a></li>
-                  <li><a onclick="load('select');">Setup</a></li>
-                  <li><a onclick="load('retrieve');">Check Code</a></li>
+                  <li><a onclick="load('create_contag');">Create Contag</a></li>
+                  <li><a onclick="load('admin_contag');">Contag Administration</a></li>
+                  <li><a onclick="load('select');">Contag for Business</a></li>
+                
                 </ul>
         </div>
        
@@ -106,7 +107,7 @@
    <!-- Main bar -->
    <nav class=" cyan lighten-1">
       <div class="container">
-        <div class="nav-wrapper"><a id="logo-container" onclick="load('index');" class="brand-logo">SHOPTAG</a>
+        <div class="nav-wrapper"><a id="logo-container" onclick="load('index');" class="brand-logo">CONTAG</a>
           <ul class="right" id="nav_top_right">
             <li><a class="modal-trigger" href="#modal_register">Register</a></li>
             <li><a class="modal-trigger" href="#modal_register">Login</a></li>

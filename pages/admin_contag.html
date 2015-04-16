@@ -1,86 +1,17 @@
 <div class="row">
-	<div class="col s12">
-		<ul class="tabs">
-			<li class="tab col s3"><a href="#shoptag_tab_create" class="active"> Create Shoptag</a></li>
-			<li class="tab col s3"><a href="#shoptag_tab_admin" id="shoptag_admin">Shoptag Admin</a></li>
-		</ul>
-	</div>
-
-	<!-- SHOPTAG: CREATE -->
-	<div id="shoptag_tab_create" class="col s12 m12 l12">
-
-		<h5>Create Contag</h5>
-		<br>
-		<h5 style="font-size:1.4rem;">1. Choose Language &amp; Country</h5>
-
-		<div class="row">
-
-			<div class="col s12 m6 l6 ">
-		
-				<!-- SELECT LANGUAGE -->
-				<select id="select_language" class="browser-default"
-			         onchange="update_country_select('select_language','select_country','address_form');">
-
-					<option value="" disabled selected>Choose your language</option>
-					<option value="de">German</option>
-					<option value="en">English</option>
-				</select>
-			</div>
-
-			<div class="col s12 m6 l6 ">
-
-				<!-- SELECT COUNTRY -->
-				<select id="select_country" class="hidden browser-default" 
-				 onchange="update_form('select_language','select_country','address_form');">
-				</select>
-
-				<!-- ======= SELECT COUNTRY: TEMPLATES ======= -->
-				<div id="select_country_templates" class="hidden">
-			
-					<!--    * GERMAN SPEAKING COUNTRIES -->
-					<div id="select_country_de">
-						<option value="" disabled selected>Choose your country</option>
-                                        	<option value="de">Germany</option>
-                                        	<option value="a">Austria</option>
-                                       		<option value="ch">Switzerland</option>
-                                	</div>
-
-					<!--    * ENGLISH SPEAKING COUNTRIES -->
-					<div id="select_country_en">
-						<option value="" disabled selected>Choose your country</option> 
-                                        	<option value="uk">United Kingdom</option>
-                                        	<option value="us">United States</option>
-                                	</div>
-
-				</div>	
-				<!-- ======================================== -->
-			</div>
-		</div>
-
-		<br /><br />
-
-		<h5 style="font-size:1.4rem;">2. Fill Out all Informations You want to Save</h5>
-		<div class="row">
-
-			<!-- ADDRESS FORM -->
-        		<form class="col s12" id="address_form" method="POST">
-				<h6>Please select language &amp; country first.</h6>
-			</form>
-		</div>
-	</div>
-
-	<!-- SHOPTAG: ADMIN -->
-	<div id="shoptag_tab_admin" class="col s12">
+	<!-- CONTAG: ADMIN -->
+	<div id="contag_admin" class="col s12">
 	</div>
 </div>
 
+<script>$(document).ready(function() { get_contag_admin(); }); </script>
 
 <!-- MODALS -->
 
 <!-- Modal: Edit -->
 <div id="modal_edit" class="modal">
   <div class="modal-content">
-    <h5>Edit Shoptag</h5>
+    <h5>Edit Contag</h5>
     <div class="row">
       <form class="col s12" id="edit_form" method="POST">
         <div class="row">

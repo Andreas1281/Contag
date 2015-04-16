@@ -1,0 +1,72 @@
+<div class="row">
+
+
+	<!-- SHOPTAG: CREATE -->
+	<div id="shoptag_tab_create" class="col s12 m12 l12">
+
+		
+		<br>
+		<h5 style="font-size:1.4rem;">1. Choose Language &amp; Country</h5>
+
+		<div class="row">
+
+			<div class="col s12 m6 l6 ">
+		
+				<!-- SELECT LANGUAGE -->
+				<select id="select_language" class="browser-default"
+			         onchange="update_country_select('select_language','select_country','address_form');">
+
+					<option value="" disabled selected>Choose your language</option>
+					<option value="de">German</option>
+					<option value="en">English</option>
+				</select>
+			</div>
+
+			<div class="col s12 m6 l6 ">
+
+				<!-- SELECT COUNTRY -->
+				<select id="select_country" class="hidden browser-default" 
+				 onchange="update_form('select_language','select_country','address_form');">
+				</select>
+
+				<!-- ======= SELECT COUNTRY: TEMPLATES ======= -->
+				<div id="select_country_templates" class="hidden">
+			
+					<!--    * GERMAN SPEAKING COUNTRIES -->
+					<div id="select_country_de">
+						<option value="" disabled selected>Choose your country</option>
+                                        	<option value="de">Germany</option>
+                                        	<option value="a">Austria</option>
+                                       		<option value="ch">Switzerland</option>
+                                	</div>
+
+					<!--    * ENGLISH SPEAKING COUNTRIES -->
+					<div id="select_country_en">
+						<option value="" disabled selected>Choose your country</option> 
+                                        	<option value="uk">United Kingdom</option>
+                                        	<option value="us">United States</option>
+                                	</div>
+
+				</div>	
+				<!-- ======================================== -->
+			</div>
+		</div>
+
+		<br /><br />
+
+		<h5 style="font-size:1.4rem;">2. Fill Out all Informations You want to Save</h5>
+		<div class="row">
+
+			<!-- ADDRESS FORM -->
+        		<form class="col s12" id="address_form" method="POST">
+				<h6>Please select language &amp; country first.</h6>
+			</form>
+		</div>
+	</div>
+
+	
+</div>
+
+
+
+
