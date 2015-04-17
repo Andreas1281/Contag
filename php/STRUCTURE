@@ -1,0 +1,45 @@
+# Structure (WIP)
+
+## AJAX Requests:
+
+   > Syntax: ./php/handle.php? CALL & ARG=VAL & ARG=VAL
+
+
+   Call     	| Type | Arguments | Description
+   ------------------------------------------------
+   
+   loadPage 	| POST | page	   | Load page
+
+   loadEmbed    | GET  | id        | Check permission settings
+              	|      | width     | Return iframe content
+                |      | height    |
+
+   register 	| POST | user	   | Validate
+    		|      | email	   | Create new user
+		|      | password  |
+
+   login    	| POST | user	   | Validate
+		|      | password  | Start session
+
+
+   Call         | Type | Arguments | Description
+   ------------------------------------------------
+ 
+   logout       | GET  | --none--  | End session
+ 
+   loadForm 	| POST | language  | Return empty region address form
+    		|      | country   |
+
+   saveContag   | POST | language  | Validate
+                |      | country   | Save new address entry
+ 		|      | fields    |
+
+   userContags  | GET  | --none--  | Return all addresses of current user
+
+   loadContag   | POST | id        | Check permission
+		|      |           | Return address data as JSON
+
+   saveChanges  | POST | type      | Check if user is owner of Contag
+		|      |           | Save changes into existing DB entry
+
+
