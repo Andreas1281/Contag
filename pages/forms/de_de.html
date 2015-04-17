@@ -6,45 +6,31 @@
 
         <div class="row">
 
-         <p><img  height="20" width="auto" src="images/de.png"></p>
+         <p id="flag"><img  height="20" width="auto" src="images/de.png"></p>
 
 
 <table>
-      <thead>
-       <tr>
-          <th data-field="id"></th>
-          <th data-field="id"></th>
-                                              
-       </tr>
-      </thead>
+  
       <tbody>
 
 
 <div class="row">
 
-	<div class="col s12 m6 l6 ">
+	<div id="public_private" class="col s12 m6 l6 ">
 		Public available? (Everyone can check the content)
 	</div>
+    <div id="public_private" class="col s12 m6 l6 ">
 
-
-
-    <div class="col s12 m6 l6 ">
-
-          <div class="switch">
-                  <form action="#">
-                    <p>
+      <form action="#">
+                    <p id="public_p">
                       <input type="checkbox" id="test5" />
                       <label for="test5"></label>
                     </p>
-                  </form>
-              </div>
-
+      </form>
+          
     </div>
 
 </div>
-
-
-
 
 <div class="row">
 
@@ -52,9 +38,7 @@
 	Personal or Business Use?
 	</div>
 
-
-
-    <div class="col s12 m6 l6 ">
+    <div id="public_private" class="col s12 m6 l6 ">
 
             <!-- Disabled Switch -->
               <div class="switch">
@@ -65,92 +49,97 @@
                   Business
                 </label>
               </div>
-
     </div>
 
 </div>
 
-<br>
-
-
-
-          <div class="input-field col s12">
-            <input name="contag_name" id="contag_name" type="text" class="validate">
-            <label for="contag_name">Contag Name:</label>
-          </div>
-
-          <div class="input-field col s6">
-            <input name="organisation" id="organisation" type="text" class="validate">
-            <label for="organisation">Organisation:</label>
-          </div>
+<div class="row">
 
 
           <div class="input-field col s6">
-            <input name="first_name" id="first_name" type="text" class="validate">
-            <label for="first_name">First Name:</label>
+            <input placeholder="Contag Name" name="contag_name" id="contag_name" type="text" class="validate">
+            <label class="active"  for="contag_name">Contag Name:</label>
           </div>
 
           <div class="input-field col s6">
-            <input name="last_name" id="last_name" type="text" class="validate">
-            <label for="last_name">Last Name:</label>
+            <input placeholder="Organisation" name="organisation" id="organisation" type="text" class="validate">
+            <label class="active" for="organisation">Organisation:</label>
+          </div>
+
+
+          <div class="input-field col s6">
+            <input placeholder="First Name" name="first_name" id="first_name" type="text" class="validate">
+            <label class="active" for="first_name">First Name:</label>
+          </div>
+
+          <div class="input-field col s6">
+            <input placeholder="Last Name" name="last_name" id="last_name" type="text" class="validate">
+            <label class="active" for="last_name">Last Name:</label>
           </div>
      
 
           <div class="input-field col s6">
-            <input name="title_1" id="title_1" type="text" class="validate">
-            <label for="title_1">Title 1:</label>
+            <input placeholder="Title 1" name="title_1" id="title_1" type="text" class="validate">
+            <label class="active" for="title_1">Title 1:</label>
           </div>
           
           <div class="input-field col s6">
-            <input name="title_2" id="title_2" type="text" class="validate">
-            <label for="title_2">Title 2:</label>
+            <input placeholder="Placeholder" name="title_2" id="title_2" type="text" class="validate">
+            <label class="active" for="title_2">Title 2:</label>
           </div>
 
 
           <div class="input-field col s6">
-            <input name="description_1" id="description_1" type="text" class="validate">
-            <label for="description_1">Description 1:</label>
-          </div>
-     
-
-          <div class="input-field col s6">
-            <input name="description_2" id="description_2" type="text" class="validate">
-            <label for="description_2">Description 2:</label>
-          </div>
-       
-
-          <div class="input-field col s6">
-            <input name="street_name" id="street_name" type="text" class="validate">
-            <label for="street_name">Street Name:</label>
-          </div>
-       
-          <div class="input-field col s6">
-            <input name="street_number" id="street_number" type="text" class="validate">
-            <label for="street_number">Street Number:</label>
+            <input placeholder="Placeholder" name="description_1" id="description_1" type="text" class="validate">
+            <label class="active" for="description_1">Description 1:</label>
           </div>
      
 
           <div class="input-field col s6">
-            <input name="postal_code" id="postal_code" type="text" class="validate">
-            <label for="postal_code">Postel Code:</label>
+            <input placeholder="Placeholder" name="description_2" id="description_2" type="text" class="validate">
+            <label class="active" for="description_2">Description 2:</label>
+          </div>
+       
+
+          <div class="input-field col s6">
+            <input placeholder="Placeholder" name="street_name" id="street_name" type="text" class="validate">
+            <label class="active" for="street_name">Street Name:</label>
+          </div>
+       
+          <div class="input-field col s6">
+            <input placeholder="Placeholder" name="street_number" id="street_number" type="text" class="validate">
+            <label class="active" for="street_number">Street Number:</label>
+          </div>
+     
+
+          <div class="input-field col s6">
+            <input placeholder="Placeholder" name="postal_code" id="postal_code" type="text" class="validate">
+            <label class="active" for="postal_code">Postel Code:</label>
           </div>
 
 
           <div class="input-field col s6">
-            <input name="city" id="city" type="text" class="validate">
-            <label for="city">City:</label>
+            <input placeholder="Placeholder" name="city" id="city" type="text" class="validate">
+            <label class="active" for="city">City:</label>
           </div>
                 
           <div class="input-field col s6">
-            <input name="region" id="region" type="text" class="validate">
-            <label for="region">Region:</label>
+            <input placeholder="Placeholder" name="region" id="region" type="text" class="validate">
+            <label class="active" for="region">Region:</label>
           </div>
       
           
           <div class="input-field col s6">
-            <input name="country" id="country" type="text" class="validate">
-            <label for="country">Country:</label>
+            <input placeholder="Placeholder" name="country" id="country" type="text" class="validate">
+            <label class="active" for="country">Country:</label>
           </div>
+
+ </div>
+
+<h5>3. Additional Info</h5>
+
+<div class="row">
+
 
 
           <div class="input-field col s6">
@@ -168,13 +157,13 @@
             <label for="web_address">Web Address:</label>
           </div>
 
-          <div class="input-field col s6">
+           <div class="col s6">
+           
           </div>
 
-          <div class="input-field col s6">  
-          </div>
-
-      </div>
+        
+ </div>
+     
 
 
         <div class="modal-footer">
