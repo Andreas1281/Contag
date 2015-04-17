@@ -6,9 +6,6 @@
  * Made By MaterializeCSS.com
  */
 
-.icon-block {
-  padding: 0 15px;
-}
 
 a:hover {
   cursor: pointer;
@@ -17,28 +14,6 @@ a:hover {
 
 .hidden { display: none; visibility: hidden; }
 
-body.home {
-  /* Location of the image */
-  
-  
-  /* Background image is centered vertically and horizontally at all times */
-  background-position: center center;
-  
-  /* Background image doesn't tile */
-  background-repeat: no-repeat;
-  
-  /* Background image is fixed in the viewport so that it doesn't move when 
-     the content's height is greater than the image's height */
-  background-attachment: fixed;
-  
-  /* This is what makes the background image rescale based
-     on the container's size */
-  background-size: cover;
-  
-  /* Set a background color that will be displayed
-     while the background image is loading */
-
-}
 
 
 
@@ -118,6 +93,31 @@ footer.page-footer .footer-copyright{
   background-color: #ffffff;
 }
 
+#flag{
+	text-align: right;
+	margin-right: 2rem;
+}
+
+
+ #public_p{
+	text-align: right;
+	
+}
+
+
+
+
+.switch, #test5{
+text-align: right;
+
+}
+
+.step_two{
+  margin-top: 1rem;
+  background: rgba(238, 242, 243, 0.2);
+  border-top: 1px solid rgba(238, 242, 243, 1);
+  padding: 0.5rem;
+}
 
 
 
@@ -294,7 +294,8 @@ padding: 0 1.5rem;
  }
 
   .row .col.s6 {
-     width: 50%;
+  width: 44%;
+  margin-left: 2rem;
   }
 
 
@@ -403,7 +404,7 @@ padding: 0 1.5rem;
   font-size: 1.2rem !important;
   line-height: 1.804rem;
   font-weight: 300;
-  margin: 2rem 0rem 1.25rem 0rem;}
+  margin: 2rem 0rem 1.25rem 2rem;}
  
  
 #h5_home{
@@ -440,7 +441,7 @@ padding: 0 1.5rem;
 h6 {
   font-size: 0.8rem;
   line-height: 1.3rem;
-  margin: 0.5rem 0 0.5rem 0; }
+  margin: 0.5rem 0 0.5rem 2rem; }
  
   #clear{
     clear: left;
@@ -1278,8 +1279,7 @@ body.home{
 
 .input-field label {
   color: #53585C;
-
-}
+ }
 
 .tabs li.tab a {
  color: #2790B1 !important;
@@ -1715,6 +1715,20 @@ nav a.button-collapse i {
 
 html {
   color: #66757F; 
+}
+
+.card-panel{
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+
+@media only screen and (min-width: 993px) {
+.row .col.l6 {
+  width: 44%;
+  margin-left: 2rem;
+}
+
 }
 
 
