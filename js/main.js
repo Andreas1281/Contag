@@ -163,6 +163,16 @@ function request(id) {
         });
 }
 
+// Shoptag: Admin
+function get_contag_admin() {
+        $.ajax({url: "./php/list.php",
+                success: function(response){
+                        $("#contag_admin").html(response);
+            },
+            error: function() { alert("Fehler"); }
+  });
+}
+
 function trigger_init() {
 
 // Edit: Save
@@ -183,17 +193,6 @@ $("#edit_form").submit(function() {
 
     return false;
 });
-
-// Shoptag: Admin
-function get_contag_admin() {
-
-	$.ajax({url: "./php/list.php", 
-                success: function(response){
-                  $("#contag_admin").html(response);
-            },
-            error: function() { alert("Fehler"); }
-  });
-}
 
 // Shoptag: Save
 $("#address_form").submit(function() {
